@@ -1,0 +1,7 @@
+# Python virtualenv
+venv/
+
+.mypy_cache/
+
+# Environment variables (contains credentials).
+.env
