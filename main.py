@@ -439,7 +439,7 @@ def main() -> None:
             elif "web" in system_information_trimmed:
                 statistics["os"]["web"]["unknown"].add(user)
 
-            # TODO: Add Intel CPUs.
+            # TODO: Add more Intel CPUs. Tweak detection to also allow "intel<number>" and "core<number>".
             if "i76700" in system_information_trimmed:
                 statistics["cpu"]["intel"]["skylake"].add(user)
                 statistics["cpu_core_count"]["4"].add(user)
@@ -451,7 +451,9 @@ def main() -> None:
                 # Second part of the `if` statement is for users who write "Intel i7" instead of "Intel Core i7".
                 statistics["cpu"]["intel"]["unknown"].add(user)
 
-            # TODO: Add AMD CPUs.
+            # TODO: Add more AMD CPUs.
+            # NOTE: Unlike Intel CPUs, detection does not allow "amd<number>" as this syntax is used for GPUs instead.
+            #       There would be some ambiguities otherwise, such as Ryzen 5 7600 versus Radeon RX 7600.
             if (
                 "ryzen55600x" in system_information_trimmed
                 or "ryzen5600x" in system_information_trimmed
@@ -465,316 +467,316 @@ def main() -> None:
             ):
                 statistics["cpu"]["amd"]["unknown"].add(user)
 
-            if "rtx4090" in system_information_trimmed:
+            if "rtx4090" in system_information_trimmed or "geforce4090" in system_information_trimmed or "nvidia4090" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ada_lovelace"].add(user)
                 statistics["gpu_vram"]["24_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx4080" in system_information_trimmed:
+            elif "rtx4080" in system_information_trimmed or "geforce4080" in system_information_trimmed or "nvidia4080" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ada_lovelace"].add(user)
                 statistics["gpu_vram"]["16_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx4070ti" in system_information_trimmed:
+            elif "rtx4070ti" in system_information_trimmed or "geforce4070ti" in system_information_trimmed or "nvidia4070ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ada_lovelace"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx4070" in system_information_trimmed:
+            elif "rtx4070" in system_information_trimmed or "geforce4070" in system_information_trimmed or "nvidia4070" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ada_lovelace"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx4060ti" in system_information_trimmed:
+            elif "rtx4060ti" in system_information_trimmed or "geforce4060ti" in system_information_trimmed or "nvidia4060ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ada_lovelace"].add(user)
                 # Assume 8 GB variant, which is much more widespread than the 16 GB one.
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx4060" in system_information_trimmed:
+            elif "rtx4060" in system_information_trimmed or "geforce4060" in system_information_trimmed or "nvidia4060" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ada_lovelace"].add(user)
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx3090" in system_information_trimmed:
+            elif "rtx3090" in system_information_trimmed or "geforce3090" in system_information_trimmed or "nvidia3090" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
                 statistics["gpu_vram"]["10_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx3080ti" in system_information_trimmed:
+            elif "rtx3080ti" in system_information_trimmed or "geforce3080ti" in system_information_trimmed or "nvidia3080ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
                 statistics["gpu_vram"]["10_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx3080" in system_information_trimmed:
+            elif "rtx3080" in system_information_trimmed or "geforce3080" in system_information_trimmed or "nvidia3080" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
                 # Assume 10 GB variant, which is much more widespread than the 12 GB one.
                 statistics["gpu_vram"]["10_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx3070" in system_information_trimmed:
+            elif "rtx3070" in system_information_trimmed or "geforce3070" in system_information_trimmed or "nvidia3070" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx3060" in system_information_trimmed:
+            elif "rtx3060" in system_information_trimmed or "geforce3060" in system_information_trimmed or "nvidia3060" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
                 # Assume 12 GB variant, which is much more widespread than the 8 GB one.
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx3050" in system_information_trimmed:
+            elif "rtx3050" in system_information_trimmed or "geforce3050" in system_information_trimmed or "nvidia3050" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2080ti" in system_information_trimmed:
+            elif "rtx2080ti" in system_information_trimmed or "geforce2080ti" in system_information_trimmed or "nvidia2080ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2080super" in system_information_trimmed:
+            elif "rtx2080super" in system_information_trimmed or "geforce2080super" in system_information_trimmed or "nvidia2080super" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2080" in system_information_trimmed:
+            elif "rtx2080" in system_information_trimmed or "geforce2080" in system_information_trimmed or "nvidia2080" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2070super" in system_information_trimmed:
+            elif "rtx2070super" in system_information_trimmed or "geforce2070super" in system_information_trimmed or "nvidia2070super" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2070" in system_information_trimmed:
+            elif "rtx2070" in system_information_trimmed or "geforce2070" in system_information_trimmed or "nvidia2070" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2060super" in system_information_trimmed:
+            elif "rtx2060super" in system_information_trimmed or "geforce2060super" in system_information_trimmed or "nvidia2060super" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rtx2060" in system_information_trimmed:
+            elif "rtx2060" in system_information_trimmed or "geforce2060" in system_information_trimmed or "nvidia2060" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["11_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1660ti" in system_information_trimmed:
+            elif "gtx1660ti" in system_information_trimmed or "geforce1660ti" in system_information_trimmed or "nvidia1660ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["6_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1660super" in system_information_trimmed:
+            elif "gtx1660super" in system_information_trimmed or "geforce1660super" in system_information_trimmed or "nvidia1660super" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["6_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1660" in system_information_trimmed:
+            elif "gtx1660" in system_information_trimmed or "geforce1660" in system_information_trimmed or "nvidia1660" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["6_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1650super" in system_information_trimmed:
+            elif "gtx1650super" in system_information_trimmed or "geforce1650super" in system_information_trimmed or "nvidia1650super" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["4_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1650" in system_information_trimmed:
+            elif "gtx1650" in system_information_trimmed or "geforce1650" in system_information_trimmed or "nvidia1650" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["4_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1630" in system_information_trimmed:
+            elif "gtx1630" in system_information_trimmed or "geforce1630" in system_information_trimmed or "nvidia1630" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
                 statistics["gpu_vram"]["4_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "gtx1080ti" in system_information_trimmed:
+            elif "gtx1080ti" in system_information_trimmed or "geforce1080ti" in system_information_trimmed or "nvidia1080ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx1080" in system_information_trimmed:
+            elif "gtx1080" in system_information_trimmed or "geforce1080" in system_information_trimmed or "nvidia1080" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx1070ti" in system_information_trimmed:
+            elif "gtx1070ti" in system_information_trimmed or "geforce1070ti" in system_information_trimmed or "nvidia1070ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx1070" in system_information_trimmed:
+            elif "gtx1070" in system_information_trimmed or "geforce1070" in system_information_trimmed or "nvidia1070" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx1060" in system_information_trimmed:
+            elif "gtx1060" in system_information_trimmed or "geforce1060" in system_information_trimmed or "nvidia1060" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx1050ti" in system_information_trimmed:
+            elif "gtx1050ti" in system_information_trimmed or "geforce1050ti" in system_information_trimmed or "nvidia1050ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx1050" in system_information_trimmed:
+            elif "gtx1050" in system_information_trimmed or "geforce1050" in system_information_trimmed or "nvidia1050" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_pascal"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx980ti" in system_information_trimmed:
+            elif "gtx980ti" in system_information_trimmed or "geforce980ti" in system_information_trimmed or "nvidia980ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx980" in system_information_trimmed:
+            elif "gtx980" in system_information_trimmed or "geforce980" in system_information_trimmed or "nvidia980" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx970" in system_information_trimmed:
+            elif "gtx970" in system_information_trimmed or "geforce970" in system_information_trimmed or "nvidia970" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx960" in system_information_trimmed:
+            elif "gtx960" in system_information_trimmed or "geforce960" in system_information_trimmed or "nvidia960" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx950" in system_information_trimmed:
+            elif "gtx950" in system_information_trimmed or "geforce950" in system_information_trimmed or "nvidia950" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx750ti" in system_information_trimmed:
+            elif "gtx750ti" in system_information_trimmed or "geforce750ti" in system_information_trimmed or "nvidia750ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx750" in system_information_trimmed:
+            elif "gtx750" in system_information_trimmed or "geforce750" in system_information_trimmed or "nvidia750" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_maxwell"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx690" in system_information_trimmed:
+            elif "gtx690" in system_information_trimmed or "geforce690" in system_information_trimmed or "nvidia690" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx680" in system_information_trimmed:
+            elif "gtx680" in system_information_trimmed or "geforce680" in system_information_trimmed or "nvidia680" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx670" in system_information_trimmed:
+            elif "gtx670" in system_information_trimmed or "geforce670" in system_information_trimmed or "nvidia670" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx660ti" in system_information_trimmed:
+            elif "gtx660ti" in system_information_trimmed or "geforce660ti" in system_information_trimmed or "nvidia660ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx660" in system_information_trimmed:
+            elif "gtx660" in system_information_trimmed or "geforce660" in system_information_trimmed or "nvidia660" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx650ti" in system_information_trimmed:
+            elif "gtx650ti" in system_information_trimmed or "geforce650ti" in system_information_trimmed or "nvidia650ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx650" in system_information_trimmed:
+            elif "gtx650" in system_information_trimmed or "geforce650" in system_information_trimmed or "nvidia650" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx590" in system_information_trimmed:
+            elif "gtx590" in system_information_trimmed or "geforce590" in system_information_trimmed or "nvidia590" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx580" in system_information_trimmed:
+            elif "gtx580" in system_information_trimmed or "geforce580" in system_information_trimmed or "nvidia580" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx570" in system_information_trimmed:
+            elif "gtx570" in system_information_trimmed or "geforce570" in system_information_trimmed or "nvidia570" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx560ti" in system_information_trimmed:
+            elif "gtx560ti" in system_information_trimmed or "geforce560ti" in system_information_trimmed or "nvidia560ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx560" in system_information_trimmed:
+            elif "gtx560" in system_information_trimmed or "geforce560" in system_information_trimmed or "nvidia560" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-            elif "gtx550ti" in system_information_trimmed:
+            elif "gtx550ti" in system_information_trimmed or "geforce550ti" in system_information_trimmed or "nvidia550ti" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
@@ -790,85 +792,85 @@ def main() -> None:
             elif "nvidia" in system_information_trimmed:
                 statistics["gpu"]["nvidia"]["unknown"].add(user)
 
-            if "rx7900xtx" in system_information_trimmed:
+            if "rx7900xtx" in system_information_trimmed or "radeon7900xtx" in system_information_trimmed or "amd7900xtx" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna3"].add(user)
                 statistics["gpu_vram"]["24_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx7900xt" in system_information_trimmed:
+            elif "rx7900xt" in system_information_trimmed or "radeon7900xt" in system_information_trimmed or "amd7900xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna3"].add(user)
                 statistics["gpu_vram"]["20_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx7600xt" in system_information_trimmed:
+            elif "rx7600xt" in system_information_trimmed or "radeon7600xt" in system_information_trimmed or "amd7600xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna3"].add(user)
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6950xt" in system_information_trimmed:
+            elif "rx6950xt" in system_information_trimmed or "radeon6950xt" in system_information_trimmed or "amd6950xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["16_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6900xt" in system_information_trimmed:
+            elif "rx6900xt" in system_information_trimmed or "radeon6900xt" in system_information_trimmed or "amd6900xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["16_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6850xt" in system_information_trimmed:
+            elif "rx6850xt" in system_information_trimmed or "radeon6850xt" in system_information_trimmed or "amd6850xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["16_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6800xt" in system_information_trimmed:
+            elif "rx6800xt" in system_information_trimmed or "radeon6800xt" in system_information_trimmed or "amd6800xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["16_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6750xt" in system_information_trimmed:
+            elif "rx6750xt" in system_information_trimmed or "radeon6750xt" in system_information_trimmed or "amd6750xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6700xt" in system_information_trimmed:
+            elif "rx6700xt" in system_information_trimmed or "radeon6700xt" in system_information_trimmed or "amd6700xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["12_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6700" in system_information_trimmed:
+            elif "rx6700" in system_information_trimmed or "radeon6700" in system_information_trimmed or "amd6700" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["10_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6650xt" in system_information_trimmed:
+            elif "rx6650xt" in system_information_trimmed or "radeon6650xt" in system_information_trimmed or "amd6650xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6600xt" in system_information_trimmed:
+            elif "rx6600xt" in system_information_trimmed or "radeon6600xt" in system_information_trimmed or "amd6600xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["8_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6500xt" in system_information_trimmed:
+            elif "rx6500xt" in system_information_trimmed or "radeon6500xt" in system_information_trimmed or "amd6500xt" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["4_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                 statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                 statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-            elif "rx6400" in system_information_trimmed:
+            elif "rx6400" in system_information_trimmed or "radeon6400" in system_information_trimmed or "amd6400" in system_information_trimmed:
                 statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
                 statistics["gpu_vram"]["4_gb"].add(user)
                 statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
