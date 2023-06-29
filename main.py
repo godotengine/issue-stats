@@ -3,6 +3,7 @@ from gql import gql, Client
 from gql.transport.aiohttp import AIOHTTPTransport
 from dotenv import load_dotenv
 import os
+import json
 
 
 def main() -> None:
@@ -18,14 +19,16 @@ def main() -> None:
 
     results = []
     cursor = None
-    # Get the 10×100 = 1000 last issues.
+    # Get the 30×100 = 3,000 last issues.
     # TODO: Retry requests a few times if they fail.
-    for _ in range(10):
+    num_queries = 30
+    for i in range(num_queries):
+        print(f"Running query #{i + 1} of {num_queries}...")
         query = gql(
             """
             query($cursor: String) {
                 repository(owner: "godotengine", name: "godot") {
-                    issues(last: 100, orderBy: {direction: ASC, field: CREATED_AT}, before: $cursor) {
+                    issues(last: 100, orderBy: { direction: ASC, field: CREATED_AT }, before: $cursor) {
                         edges {
                             cursor
                             node {
@@ -343,7 +346,6 @@ def main() -> None:
                         "pro", ""
                     )  # Makes it easier to parse "Ryzen PRO" (these are very close to their non-PRO counterparts).
                 )
-                print(system_information_trimmed)
 
                 # Gather statistics for each issue reported.
                 if "windows11" in system_information_trimmed:
@@ -2943,12 +2945,20 @@ def main() -> None:
                 ):
                     statistics["gpu"]["intel"]["unknown"].add(user)
 
-    for info in user_system_infos:
-        print(info["user"], " \t", info["system_information"])
-
     print(f"Number of scannable reports: {len(user_system_infos)}")
-    print()
-    print(statistics)
+
+    output_path = "statistics.json"
+    with open(output_path, "w") as out_file:
+        # Serialize Python sets as their length as an integer, since we only need to know how many users
+        # match each metric (and not who exactly).
+        def set_default(obj):
+            if isinstance(obj, set):
+                return len(obj)
+            raise TypeError
+
+        json.dump(statistics, out_file, default=set_default)
+
+    print(f"Wrote statistics to: {output_path}")
 
 
 if __name__ == "__main__":

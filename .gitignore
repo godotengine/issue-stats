@@ -1,7 +1,10 @@
-# Python virtualenv
+# Python virtualenv.
 venv/
 
 .mypy_cache/
 
 # Environment variables (contains credentials).
 .env
+
+# JSON file output by running `main.py`.
+statistics.json

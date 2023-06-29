@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="thirdparty/water.min.css">
+    <style>
+
+    </style>
+    <script src="thirdparty/frappe-charts.umd.min.js"></script>
+    <script src="thirdparty/ky.umd.min.js"></script>
+    <script type="module">
+        document.addEventListener("DOMContentLoaded", async function () {
+            const statistics = await ky.get('statistics.json').json();
+
+            const colorAmd = "#b91c1c";
+            const colorIntel = "#2074d9";
+            const colorNvidia = "#65a30d";
+
+            // Function that sums all values in an array (use with `reduce()`).
+            const sum = (partialSum, value) => partialSum + value;
+
+            new frappe.Chart("#chart-cpu-vendor", {
+                data: {
+                    labels: ["AMD", "Intel"],
+                    datasets: [{ values: [Object.values(statistics.cpu.amd).reduce(sum, 0), Object.values(statistics.cpu.intel).reduce(sum, 0)] }],
+                },
+                type: "percentage",
+                colors: [colorAmd, colorIntel],
+            });
+
+            new frappe.Chart("#chart-gpu-vendor", {
+                data: {
+                    labels: ["AMD", "Intel", "NVIDIA"],
+                    datasets: [{ values: [Object.values(statistics.gpu.amd).reduce(sum, 0), Object.values(statistics.gpu.intel).reduce(sum, 0), Object.values(statistics.gpu.nvidia).reduce(sum, 0)] }],
+                },
+                type: "percentage",
+                colors: [colorAmd, colorIntel, colorNvidia],
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Statistics</h1>
+
+    <h2>CPU vendor</h2>
+    <div id="chart-cpu-vendor"></div>
+
+    <h2>GPU vendor</h2>
+    <div id="chart-gpu-vendor"></div>
+
+    <footer>
+        © 2023-present Hugo Locurcio and contributors<br>
+        <a href="https://github.com/godot-issues-stats/godot-issues-stats.github.io">Website source on GitHub</a>
+    </footer>
+</body>
+
+</html>
