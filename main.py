@@ -18,26 +18,35 @@ def main() -> None:
     # TODO: Query more than 100 issues by performing several requests.
     query = gql(
         """
-        query {
-        repository(owner: "godotengine", name: "godot") {
-            issues(last: 100) {
-                edges {
-                    node {
-                        body
-                        author {
-                            login
+        query($cursor: String) {
+            repository(owner: "godotengine", name: "godot") {
+                issues(last: 100, before: $cursor) {
+                    edges {
+                        cursor
+                        node {
+                            body
+                            author {
+                                login
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    """
+        """
     )
 
-    result = client.execute(query)
+    # We're querying the first page, so we don't need to supply a valid cursor.
+    # GQL will take care of not submitting the variable if it's set to `None`.
+    cursor = None
+    result = client.execute(query, variable_values={"cursor": cursor})
+
     # Array of dictionaries with user and system information string.
     user_system_infos = []
+
+    # Get the cursor value of the last returned item, as we need it for subsequent requests (pagination).
+    # TODO: Use this cursor value.
+    cursor = result["repository"]["issues"]["edges"][-1]["cursor"]
 
     # Counters for all statistics (values are a set of usernames).
     # A set is used, so that each user may only increment a given counter once.
@@ -316,7 +325,9 @@ def main() -> None:
                 .replace(",", "")
                 .replace("(r)", "")
                 .replace("(tm)", "")
-                .replace("graphics", "")  # Makes it easier to parse "Intel HD Graphics ...".
+                .replace(
+                    "graphics", ""
+                )  # Makes it easier to parse "Intel HD Graphics ...".
             )
             print(system_information_trimmed)
 
