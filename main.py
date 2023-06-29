@@ -124,7 +124,7 @@ def main() -> None:
                 "zen3": set(),
                 "zen2": set(),
                 "zen+": set(),
-                "zen": set(),
+                "zen1": set(),
                 "piledriver": set(),
                 "bulldozer": set(),
                 "phenom": set(),
@@ -221,7 +221,7 @@ def main() -> None:
                 "dedicated_arc_alchemist": set(),
                 "integrated_gen12": set(),  # Rocket Lake/Alder Lake/Raptor Lake
                 # There's no way to detect gen11 (Ice Lake) IGPs based on GPU model name alone.
-                # There are gen10 IGPs.
+                # There are no gen10 IGPs.
                 "integrated_gen9.5": set(),  # Kaby Lake/Coffee Lake/Coffee Lake Refresh
                 "integrated_gen9": set(),  # Skylake
                 "integrated_gen8": set(),  # Broadwell
@@ -306,7 +306,11 @@ def main() -> None:
     for result in results:
         for node in result["repository"]["issues"]["edges"]:
             # Handle deleted ("ghost") users.
-            user = node["node"]["author"]["login"] if node["node"]["author"] != None else "ghost"
+            user = (
+                node["node"]["author"]["login"]
+                if node["node"]["author"] != None
+                else "ghost"
+            )
             # Fix CRLF line endings causing issues with detection,
             # as some issue reports use them instead of LF line endings.
             body = node["node"]["body"].replace("\r\n", "\n")
@@ -336,6 +340,9 @@ def main() -> None:
                     .replace(
                         "graphics", ""
                     )  # Makes it easier to parse "Intel HD Graphics ...".
+                    .replace(
+                        "pro", ""
+                    )  # Makes it easier to parse "Ryzen PRO" (these are very close to their non-PRO counterparts).
                 )
                 print(system_information_trimmed)
 
@@ -470,15 +477,302 @@ def main() -> None:
                     # Second part of the `if` statement is for users who write "Intel i7" instead of "Intel Core i7".
                     statistics["cpu"]["intel"]["unknown"].add(user)
 
-                # TODO: Add more AMD CPUs.
+                # TODO: Add laptop AMD CPUs and Threadrippers.
                 # NOTE: Unlike Intel CPUs, detection does not allow "amd<number>" as this syntax is used for GPUs instead.
                 #       There would be some ambiguities otherwise, such as Ryzen 5 7600 versus Radeon RX 7600.
                 if (
+                    "ryzen97950x3d" in system_information_trimmed
+                    or "ryzen7950x3d" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen97950x" in system_information_trimmed
+                    or "ryzen7950x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen97900x3d" in system_information_trimmed
+                    or "ryzen7900x3d" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["12"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen97900x" in system_information_trimmed
+                    or "ryzen7900x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["12"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen77800x3d" in system_information_trimmed
+                    or "ryzen7800x3d" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen77800x" in system_information_trimmed
+                    or "ryzen7800x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen77700x3d" in system_information_trimmed
+                    or "ryzen7700x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen77700x" in system_information_trimmed
+                    or "ryzen7700x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen57600x" in system_information_trimmed
+                    or "ryzen7600x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "ryzen95950x" in system_information_trimmed
+                    or "ryzen5950x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen95900x" in system_information_trimmed
+                    or "ryzen5900x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["12"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen75800x3d" in system_information_trimmed
+                    or "ryzen5800x3d" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen75800x" in system_information_trimmed
+                    or "ryzen5800x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen75700x" in system_information_trimmed
+                    or "ryzen5700x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen75700g" in system_information_trimmed
+                    or "ryzen5700g" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
                     "ryzen55600x" in system_information_trimmed
                     or "ryzen5600x" in system_information_trimmed
                 ):
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen55600g" in system_information_trimmed
+                    or "ryzen5600g" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen55600" in system_information_trimmed
+                    or "ryzen5600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen55500" in system_information_trimmed
+                    or "ryzen5500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen93950x" in system_information_trimmed
+                    or "ryzen3950x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen93900x" in system_information_trimmed
+                    or "ryzen3900x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["12"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen73800x" in system_information_trimmed
+                    or "ryzen3800x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen73700x" in system_information_trimmed
+                    or "ryzen3700x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen53600x" in system_information_trimmed
+                    or "ryzen3600x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen53600" in system_information_trimmed
+                    or "ryzen3600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen33300x" in system_information_trimmed
+                    or "ryzen3300x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen72700x" in system_information_trimmed
+                    or "ryzen2700x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen52600x" in system_information_trimmed
+                    or "ryzen2600x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen52600" in system_information_trimmed
+                    or "ryzen2600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen52500x" in system_information_trimmed
+                    or "ryzen2500x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen52400g" in system_information_trimmed
+                    or "ryzen2400g" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen32300x" in system_information_trimmed
+                    or "ryzen2300x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen32200g" in system_information_trimmed
+                    or "ryzen2200g" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen71800x" in system_information_trimmed
+                    or "ryzen1800x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen71700x" in system_information_trimmed
+                    or "ryzen1700x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen71700" in system_information_trimmed
+                    or "ryzen1700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen51600x" in system_information_trimmed
+                    or "ryzen1600x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen51600" in system_information_trimmed
+                    or "ryzen1600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen51500x" in system_information_trimmed
+                    or "ryzen1500x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen51400" in system_information_trimmed
+                    or "ryzen1400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen31300x" in system_information_trimmed
+                    or "ryzen1300x" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "ryzen31200" in system_information_trimmed
+                    or "ryzen1200" in system_information_trimmed
+                ):
+                    statistics["cpu"]["amd"]["zen+"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                 elif (
                     "ryzen" in system_information_trimmed
@@ -1588,7 +1882,9 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                elif "irispro580" in system_information_trimmed:
+                elif (
+                    "iris580" in system_information_trimmed
+                ):  # Originally "irispro580", but we stripped "pro" to make parsing Ryzen PRO easier.
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
@@ -1623,7 +1919,9 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                elif "irispro6200" in system_information_trimmed:
+                elif (
+                    "iris6200" in system_information_trimmed
+                ):  # Originally "irispro6200", but we stripped "pro" to make parsing Ryzen PRO easier.
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
@@ -1653,7 +1951,9 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                elif "irispro5200" in system_information_trimmed:
+                elif (
+                    "iris5200" in system_information_trimmed
+                ):  # Originally "irispro5200", but we stripped "pro" to make parsing Ryzen PRO easier.
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
