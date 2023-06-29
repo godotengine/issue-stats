@@ -43,7 +43,6 @@ def main() -> None:
 
         # We're querying the first page, so we don't need to supply a valid cursor.
         # GQL will take care of not submitting the variable if it's set to `None`.
-
         result = client.execute(query, variable_values={"cursor": cursor})
         results.append(result)
         # Get the cursor value of the last returned item, as we need it for subsequent requests (pagination).
@@ -131,11 +130,10 @@ def main() -> None:
                 "unknown": set(),
             },
             "intel": {
-                "meteor_lake": set(),
                 "raptor_lake": set(),
                 "alder_lake": set(),
                 "rocket_lake": set(),
-                "ice_lake": set(),
+                "comet_lake": set(),
                 "coffee_lake_refresh": set(),
                 "coffee_lake": set(),
                 "kaby_lake": set(),
@@ -160,6 +158,7 @@ def main() -> None:
             "8": set(),
             "10": set(),
             "12": set(),
+            "14": set(),
             "16": set(),
             "24": set(),
             "32": set(),
@@ -464,12 +463,946 @@ def main() -> None:
                 elif "web" in system_information_trimmed:
                     statistics["os"]["web"]["unknown"].add(user)
 
-                # TODO: Add more Intel CPUs. Tweak detection to also allow "intel<number>" and "core<number>".
+                # TODO: Add laptop and Celeron/Pentium Intel CPUs.
                 # TODO: Add Passmark scores for CPUs and GPUs.
-                if "i76700" in system_information_trimmed:
+                # The Intel CPU detection considers -KS and -KF CPUs identical to -K,
+                # and -F identical to not having any suffix. (The -F suffix denotes a non-functional IGP.)
+                if (
+                    "i913900k" in system_information_trimmed
+                    or "core13900k" in system_information_trimmed
+                    or "intel13900k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["24"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i913900" in system_information_trimmed
+                    or "core13900" in system_information_trimmed
+                    or "intel13900" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["24"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i713700k" in system_information_trimmed
+                    or "core13700k" in system_information_trimmed
+                    or "intel13700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i713700" in system_information_trimmed
+                    or "core13700" in system_information_trimmed
+                    or "intel13700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i513600k" in system_information_trimmed
+                    or "core13600k" in system_information_trimmed
+                    or "intel13600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["14"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i513600" in system_information_trimmed
+                    or "core13600" in system_information_trimmed
+                    or "intel13600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["14"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i513500" in system_information_trimmed
+                    or "core13500" in system_information_trimmed
+                    or "intel13500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["14"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i513400" in system_information_trimmed
+                    or "core13400" in system_information_trimmed
+                    or "intel13400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["10"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i313100" in system_information_trimmed
+                    or "core13100" in system_information_trimmed
+                    or "intel13100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["raptor_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i912900k" in system_information_trimmed
+                    or "core12900k" in system_information_trimmed
+                    or "intel12900k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i912900" in system_information_trimmed
+                    or "core12900" in system_information_trimmed
+                    or "intel12900" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["16"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i712700k" in system_information_trimmed
+                    or "core12700k" in system_information_trimmed
+                    or "intel12700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["12"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i712700" in system_information_trimmed
+                    or "core12700" in system_information_trimmed
+                    or "intel12700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["12"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i512600k" in system_information_trimmed
+                    or "core12600k" in system_information_trimmed
+                    or "intel12600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["10"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i512600" in system_information_trimmed
+                    or "core12600" in system_information_trimmed
+                    or "intel12600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i512500" in system_information_trimmed
+                    or "core12500" in system_information_trimmed
+                    or "intel12500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i512400" in system_information_trimmed
+                    or "core12400" in system_information_trimmed
+                    or "intel12400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i312300" in system_information_trimmed
+                    or "core12300" in system_information_trimmed
+                    or "intel12300" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i312100" in system_information_trimmed
+                    or "core12100" in system_information_trimmed
+                    or "intel12100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["alder_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i911900k" in system_information_trimmed
+                    or "core11900k" in system_information_trimmed
+                    or "intel11900k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i911900" in system_information_trimmed
+                    or "core11900" in system_information_trimmed
+                    or "intel11900" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i711700k" in system_information_trimmed
+                    or "core11700k" in system_information_trimmed
+                    or "intel11700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i711700" in system_information_trimmed
+                    or "core11700" in system_information_trimmed
+                    or "intel11700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i511600k" in system_information_trimmed
+                    or "core11600k" in system_information_trimmed
+                    or "intel11600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i511600" in system_information_trimmed
+                    or "core11600" in system_information_trimmed
+                    or "intel11600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i511500" in system_information_trimmed
+                    or "core11500" in system_information_trimmed
+                    or "intel11500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i511400" in system_information_trimmed
+                    or "core11400" in system_information_trimmed
+                    or "intel11400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["rocket_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx512"].add(user)
+                elif (
+                    "i910900k" in system_information_trimmed
+                    or "core10900k" in system_information_trimmed
+                    or "intel10900k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["10"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i910900" in system_information_trimmed
+                    or "core10900" in system_information_trimmed
+                    or "intel10900" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["10"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i710700k" in system_information_trimmed
+                    or "core10700k" in system_information_trimmed
+                    or "intel10700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i710700" in system_information_trimmed
+                    or "core10700" in system_information_trimmed
+                    or "intel10700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i510600k" in system_information_trimmed
+                    or "core10600k" in system_information_trimmed
+                    or "intel10600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i510600" in system_information_trimmed
+                    or "core10600" in system_information_trimmed
+                    or "intel10600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i510500" in system_information_trimmed
+                    or "core10500" in system_information_trimmed
+                    or "intel10500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i510400" in system_information_trimmed
+                    or "core10400" in system_information_trimmed
+                    or "intel10400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i310300" in system_information_trimmed
+                    or "core10300" in system_information_trimmed
+                    or "intel10300" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i310100" in system_information_trimmed
+                    or "core10100" in system_information_trimmed
+                    or "intel10100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["comet_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i99900k" in system_information_trimmed
+                    or "core9900k" in system_information_trimmed
+                    or "intel9900k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i99900" in system_information_trimmed
+                    or "core9900" in system_information_trimmed
+                    or "intel9900" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i79700k" in system_information_trimmed
+                    or "core9700k" in system_information_trimmed
+                    or "intel9700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i79700" in system_information_trimmed
+                    or "core9700" in system_information_trimmed
+                    or "intel9700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["8"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i59600k" in system_information_trimmed
+                    or "core9600k" in system_information_trimmed
+                    or "intel9600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i59600" in system_information_trimmed
+                    or "core9600" in system_information_trimmed
+                    or "intel9600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i59500" in system_information_trimmed
+                    or "core9500" in system_information_trimmed
+                    or "intel9500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i59400" in system_information_trimmed
+                    or "core9400" in system_information_trimmed
+                    or "intel9400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i39350k" in system_information_trimmed
+                    or "core9350k" in system_information_trimmed
+                    or "intel9350k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i39300" in system_information_trimmed
+                    or "core9300" in system_information_trimmed
+                    or "intel9300" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i39100" in system_information_trimmed
+                    or "core9100" in system_information_trimmed
+                    or "intel9100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i78700k" in system_information_trimmed
+                    or "core8700k" in system_information_trimmed
+                    or "intel8700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i78700" in system_information_trimmed
+                    or "core8700" in system_information_trimmed
+                    or "intel8700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i78086k" in system_information_trimmed
+                    or "core8086k" in system_information_trimmed
+                    or "intel8086k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i58600k" in system_information_trimmed
+                    or "core8600k" in system_information_trimmed
+                    or "intel8600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i58500" in system_information_trimmed
+                    or "core8500" in system_information_trimmed
+                    or "intel8500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i58400" in system_information_trimmed
+                    or "core8400" in system_information_trimmed
+                    or "intel8400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["6"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i38350k" in system_information_trimmed
+                    or "core8350k" in system_information_trimmed
+                    or "intel8350k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i38100" in system_information_trimmed
+                    or "core8100" in system_information_trimmed
+                    or "intel8100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["coffee_lake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i77700k" in system_information_trimmed
+                    or "core7700k" in system_information_trimmed
+                    or "intel7700k" in system_information_trimmed
+                ):
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i77700" in system_information_trimmed
+                    or "core7700" in system_information_trimmed
+                    or "intel7700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i57600k" in system_information_trimmed
+                    or "core7600k" in system_information_trimmed
+                    or "intel7600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i57600" in system_information_trimmed
+                    or "core7600" in system_information_trimmed
+                    or "intel7600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i57500" in system_information_trimmed
+                    or "core7500" in system_information_trimmed
+                    or "intel7500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i57400" in system_information_trimmed
+                    or "core7400" in system_information_trimmed
+                    or "intel7400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i37350k" in system_information_trimmed
+                    or "core7350k" in system_information_trimmed
+                    or "intel7350k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i37300" in system_information_trimmed
+                    or "core7300" in system_information_trimmed
+                    or "intel7300" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i37100" in system_information_trimmed
+                    or "core7100" in system_information_trimmed
+                    or "intel7100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i76700k" in system_information_trimmed
+                    or "core6700k" in system_information_trimmed
+                    or "intel6700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i76700" in system_information_trimmed
+                    or "core6700" in system_information_trimmed
+                    or "intel6700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i56600k" in system_information_trimmed
+                    or "core6600k" in system_information_trimmed
+                    or "intel6600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i56600" in system_information_trimmed
+                    or "core6600" in system_information_trimmed
+                    or "intel6600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i56500" in system_information_trimmed
+                    or "core6500" in system_information_trimmed
+                    or "intel6500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i56400" in system_information_trimmed
+                    or "core6400" in system_information_trimmed
+                    or "intel6400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i36300" in system_information_trimmed
+                    or "core6300" in system_information_trimmed
+                    or "intel6300" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i36100" in system_information_trimmed
+                    or "core6100" in system_information_trimmed
+                    or "intel6100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["skylake"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i74790k" in system_information_trimmed
+                    or "core4790k" in system_information_trimmed
+                    or "intel4790k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i74790" in system_information_trimmed
+                    or "core4790" in system_information_trimmed
+                    or "intel4790" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i74770k" in system_information_trimmed
+                    or "core4770k" in system_information_trimmed
+                    or "intel4770k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i74770" in system_information_trimmed
+                    or "core4770" in system_information_trimmed
+                    or "intel4770" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54670k" in system_information_trimmed
+                    or "core4670k" in system_information_trimmed
+                    or "intel4670k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54670" in system_information_trimmed
+                    or "core4670" in system_information_trimmed
+                    or "intel4670" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54590" in system_information_trimmed
+                    or "core4590" in system_information_trimmed
+                    or "intel4590" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54570" in system_information_trimmed
+                    or "core4570" in system_information_trimmed
+                    or "intel4570" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54460" in system_information_trimmed
+                    or "core4460" in system_information_trimmed
+                    or "intel4460" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54440" in system_information_trimmed
+                    or "core4440" in system_information_trimmed
+                    or "intel4440" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i54430" in system_information_trimmed
+                    or "core4430" in system_information_trimmed
+                    or "intel4430" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34370" in system_information_trimmed
+                    or "core4370" in system_information_trimmed
+                    or "intel4370" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34360" in system_information_trimmed
+                    or "core4360" in system_information_trimmed
+                    or "intel4360" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34350" in system_information_trimmed
+                    or "core4350" in system_information_trimmed
+                    or "intel4350" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34340" in system_information_trimmed
+                    or "core4340" in system_information_trimmed
+                    or "intel4340" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34330" in system_information_trimmed
+                    or "core4330" in system_information_trimmed
+                    or "intel4330" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34170" in system_information_trimmed
+                    or "core4170" in system_information_trimmed
+                    or "intel4170" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34160" in system_information_trimmed
+                    or "core4160" in system_information_trimmed
+                    or "intel4160" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34150" in system_information_trimmed
+                    or "core4150" in system_information_trimmed
+                    or "intel4150" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i34130" in system_information_trimmed
+                    or "core4130" in system_information_trimmed
+                    or "intel4130" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["haswell"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx2"].add(user)
+                elif (
+                    "i73770k" in system_information_trimmed
+                    or "core3770k" in system_information_trimmed
+                    or "intel3770k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i73770" in system_information_trimmed
+                    or "core3770" in system_information_trimmed
+                    or "intel3770" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53570k" in system_information_trimmed
+                    or "core3570k" in system_information_trimmed
+                    or "intel3570k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53570" in system_information_trimmed
+                    or "core3570" in system_information_trimmed
+                    or "intel3570" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53550" in system_information_trimmed
+                    or "core3550" in system_information_trimmed
+                    or "intel3550" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53470" in system_information_trimmed
+                    or "core3470" in system_information_trimmed
+                    or "intel3470" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53450" in system_information_trimmed
+                    or "core3450" in system_information_trimmed
+                    or "intel3450" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53340" in system_information_trimmed
+                    or "core3340" in system_information_trimmed
+                    or "intel3340" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i53330" in system_information_trimmed
+                    or "core3330" in system_information_trimmed
+                    or "intel3330" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i33250" in system_information_trimmed
+                    or "core3250" in system_information_trimmed
+                    or "intel3250" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i33240" in system_information_trimmed
+                    or "core3240" in system_information_trimmed
+                    or "intel3240" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i33220" in system_information_trimmed
+                    or "core3220" in system_information_trimmed
+                    or "intel3220" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i33210" in system_information_trimmed
+                    or "core3210" in system_information_trimmed
+                    or "intel3210" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["ivy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i72700k" in system_information_trimmed
+                    or "core2700k" in system_information_trimmed
+                    or "intel2700k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i72700" in system_information_trimmed
+                    or "core2700" in system_information_trimmed
+                    or "intel2700" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i72600k" in system_information_trimmed
+                    or "core2600k" in system_information_trimmed
+                    or "intel2600k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i72600" in system_information_trimmed
+                    or "core2600" in system_information_trimmed
+                    or "intel2600" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i52500k" in system_information_trimmed
+                    or "core2500k" in system_information_trimmed
+                    or "intel2500k" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i52500" in system_information_trimmed
+                    or "core2500" in system_information_trimmed
+                    or "intel2500" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i52400" in system_information_trimmed
+                    or "core2400" in system_information_trimmed
+                    or "intel2400" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i52300" in system_information_trimmed
+                    or "core2300" in system_information_trimmed
+                    or "intel2300" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["4"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i32130" in system_information_trimmed
+                    or "core2130" in system_information_trimmed
+                    or "intel2130" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i32120" in system_information_trimmed
+                    or "core2120" in system_information_trimmed
+                    or "intel2120" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
+                elif (
+                    "i32100" in system_information_trimmed
+                    or "core2100" in system_information_trimmed
+                    or "intel2100" in system_information_trimmed
+                ):
+                    statistics["cpu"]["intel"]["sandy_bridge"].add(user)
+                    statistics["cpu_core_count"]["2"].add(user)
+                    statistics["cpu_x86_features"]["avx"].add(user)
                 elif (
                     "intelcore" in system_information_trimmed
                     or "inteli" in system_information_trimmed
@@ -477,7 +1410,7 @@ def main() -> None:
                     # Second part of the `if` statement is for users who write "Intel i7" instead of "Intel Core i7".
                     statistics["cpu"]["intel"]["unknown"].add(user)
 
-                # TODO: Add laptop AMD CPUs and Threadrippers.
+                # TODO: Add laptop AMD CPUs, Athlons and Threadrippers.
                 # NOTE: Unlike Intel CPUs, detection does not allow "amd<number>" as this syntax is used for GPUs instead.
                 #       There would be some ambiguities otherwise, such as Ryzen 5 7600 versus Radeon RX 7600.
                 if (
@@ -780,11 +1713,12 @@ def main() -> None:
                 ):
                     statistics["cpu"]["amd"]["unknown"].add(user)
 
+                # RTX models only scan for "tx" to allow for misspellings (e.g. "GTX 2070").
                 # NOTE: In this scanning, laptop GPUs are only separated from desktop GPUs since Ampere.
                 #       This may not be reliable in all cases if the user has removed the "Mobile"
                 #       or "Laptop" suffix from the model name.
                 if (
-                    "rtx4090" in system_information_trimmed
+                    "tx4090" in system_information_trimmed
                     or "geforce4090" in system_information_trimmed
                     or "nvidia4090" in system_information_trimmed
                 ):
@@ -803,7 +1737,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx4080" in system_information_trimmed
+                    "tx4080" in system_information_trimmed
                     or "geforce4080" in system_information_trimmed
                     or "nvidia4080" in system_information_trimmed
                 ):
@@ -822,7 +1756,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx4070ti" in system_information_trimmed
+                    "tx4070ti" in system_information_trimmed
                     or "geforce4070ti" in system_information_trimmed
                     or "nvidia4070ti" in system_information_trimmed
                 ):
@@ -832,7 +1766,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx4070" in system_information_trimmed
+                    "tx4070" in system_information_trimmed
                     or "geforce4070" in system_information_trimmed
                     or "nvidia4070" in system_information_trimmed
                 ):
@@ -851,7 +1785,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx4060ti" in system_information_trimmed
+                    "tx4060ti" in system_information_trimmed
                     or "geforce4060ti" in system_information_trimmed
                     or "nvidia4060ti" in system_information_trimmed
                 ):
@@ -862,7 +1796,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx4060" in system_information_trimmed
+                    "tx4060" in system_information_trimmed
                     or "geforce4060" in system_information_trimmed
                     or "nvidia4060" in system_information_trimmed
                 ):
@@ -890,7 +1824,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3090" in system_information_trimmed
+                    "tx3090" in system_information_trimmed
                     or "geforce3090" in system_information_trimmed
                     or "nvidia3090" in system_information_trimmed
                 ):
@@ -900,7 +1834,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3080ti" in system_information_trimmed
+                    "tx3080ti" in system_information_trimmed
                     or "geforce3080ti" in system_information_trimmed
                     or "nvidia3080ti" in system_information_trimmed
                 ):
@@ -919,7 +1853,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3080" in system_information_trimmed
+                    "tx3080" in system_information_trimmed
                     or "geforce3080" in system_information_trimmed
                     or "nvidia3080" in system_information_trimmed
                 ):
@@ -939,7 +1873,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3070ti" in system_information_trimmed
+                    "tx3070ti" in system_information_trimmed
                     or "geforce3070ti" in system_information_trimmed
                     or "nvidia3070ti" in system_information_trimmed
                 ):
@@ -958,7 +1892,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3070" in system_information_trimmed
+                    "tx3070" in system_information_trimmed
                     or "geforce3070" in system_information_trimmed
                     or "nvidia3070" in system_information_trimmed
                 ):
@@ -986,7 +1920,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3060" in system_information_trimmed
+                    "tx3060" in system_information_trimmed
                     or "geforce3060" in system_information_trimmed
                     or "nvidia3060" in system_information_trimmed
                 ):
@@ -1015,7 +1949,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx3050" in system_information_trimmed
+                    "tx3050" in system_information_trimmed
                     or "geforce3050" in system_information_trimmed
                     or "nvidia3050" in system_information_trimmed
                 ):
@@ -1035,7 +1969,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2080ti" in system_information_trimmed
+                    "tx2080ti" in system_information_trimmed
                     or "geforce2080ti" in system_information_trimmed
                     or "nvidia2080ti" in system_information_trimmed
                 ):
@@ -1045,7 +1979,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2080super" in system_information_trimmed
+                    "tx2080super" in system_information_trimmed
                     or "geforce2080super" in system_information_trimmed
                     or "nvidia2080super" in system_information_trimmed
                 ):
@@ -1055,7 +1989,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2080" in system_information_trimmed
+                    "tx2080" in system_information_trimmed
                     or "geforce2080" in system_information_trimmed
                     or "nvidia2080" in system_information_trimmed
                 ):
@@ -1065,7 +1999,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2070super" in system_information_trimmed
+                    "tx2070super" in system_information_trimmed
                     or "geforce2070super" in system_information_trimmed
                     or "nvidia2070super" in system_information_trimmed
                 ):
@@ -1075,7 +2009,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2070" in system_information_trimmed
+                    "tx2070" in system_information_trimmed
                     or "geforce2070" in system_information_trimmed
                     or "nvidia2070" in system_information_trimmed
                 ):
@@ -1085,7 +2019,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2060super" in system_information_trimmed
+                    "tx2060super" in system_information_trimmed
                     or "geforce2060super" in system_information_trimmed
                     or "nvidia2060super" in system_information_trimmed
                 ):
@@ -1095,7 +2029,7 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                 elif (
-                    "rtx2060" in system_information_trimmed
+                    "tx2060" in system_information_trimmed
                     or "geforce2060" in system_information_trimmed
                     or "nvidia2060" in system_information_trimmed
                 ):
