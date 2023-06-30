@@ -2489,6 +2489,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"][">30000"].add(user)
                 elif (
                     "rx7900xt" in system_information_trimmed
                     or "radeon7900xt" in system_information_trimmed
@@ -2499,16 +2500,18 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
-                    "rx7600xt" in system_information_trimmed
-                    or "radeon7600xt" in system_information_trimmed
-                    or "amd7600xt" in system_information_trimmed
+                    "rx7600" in system_information_trimmed
+                    or "radeon7600" in system_information_trimmed
+                    or "amd7600" in system_information_trimmed
                 ):
                     statistics["gpu"]["amd"]["dedicated_rdna3"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx6950xt" in system_information_trimmed
                     or "radeon6950xt" in system_information_trimmed
@@ -2519,6 +2522,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "rx6900xt" in system_information_trimmed
                     or "radeon6900xt" in system_information_trimmed
@@ -2529,16 +2533,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                elif (
-                    "rx6850xt" in system_information_trimmed
-                    or "radeon6850xt" in system_information_trimmed
-                    or "amd6850xt" in system_information_trimmed
-                ):
-                    statistics["gpu"]["amd"]["dedicated_rdna2"].add(user)
-                    statistics["gpu_vram"]["16_gb"].add(user)
-                    statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "rx6800xt" in system_information_trimmed
                     or "radeon6800xt" in system_information_trimmed
@@ -2549,6 +2544,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "rx6800" in system_information_trimmed
                     or "radeon6800" in system_information_trimmed
@@ -2559,6 +2555,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "rx6750xt" in system_information_trimmed
                     or "radeon6750xt" in system_information_trimmed
@@ -2569,6 +2566,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "rx6700xt" in system_information_trimmed
                     or "radeon6700xt" in system_information_trimmed
@@ -2579,6 +2577,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx6700" in system_information_trimmed
                     or "radeon6700" in system_information_trimmed
@@ -2589,6 +2588,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx6650xt" in system_information_trimmed
                     or "radeon6650xt" in system_information_trimmed
@@ -2599,6 +2599,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx6600xt" in system_information_trimmed
                     or "radeon6600xt" in system_information_trimmed
@@ -2609,6 +2610,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx6600" in system_information_trimmed
                     or "radeon6600" in system_information_trimmed
@@ -2619,6 +2621,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx6500xt" in system_information_trimmed
                     or "radeon6500xt" in system_information_trimmed
@@ -2629,6 +2632,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx6400" in system_information_trimmed
                     or "radeon6400" in system_information_trimmed
@@ -2639,6 +2643,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx5700xt" in system_information_trimmed
                     or "radeon5700xt" in system_information_trimmed
@@ -2649,6 +2654,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "rx5700" in system_information_trimmed
                     or "radeon5700" in system_information_trimmed
@@ -2659,6 +2665,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "rx5600xt" in system_information_trimmed
                     or "radeon5600xt" in system_information_trimmed
@@ -2669,6 +2676,18 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                elif (
+                    "rx5600" in system_information_trimmed
+                    or "radeon5600" in system_information_trimmed
+                    or "amd5600" in system_information_trimmed
+                ):
+                    statistics["gpu"]["amd"]["dedicated_rdna1"].add(user)
+                    statistics["gpu_vram"]["6_gb"].add(user)
+                    statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
+                    statistics["gpu_vrs"]["dedicated"]["no"].add(user)
+                    statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "rx5500xt" in system_information_trimmed
                     or "radeon5500xt" in system_information_trimmed
@@ -2679,24 +2698,39 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                elif (
+                    "rx5500" in system_information_trimmed
+                    or "radeon5500" in system_information_trimmed
+                    or "amd5500" in system_information_trimmed
+                ):
+                    statistics["gpu"]["amd"]["dedicated_rdna1"].add(user)
+                    statistics["gpu_vram"]["4_gb"].add(user)
+                    statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
+                    statistics["gpu_vrs"]["dedicated"]["no"].add(user)
+                    statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif "radeonvii" in system_information_trimmed:
                     statistics["gpu"]["amd"]["dedicated_gcn5.0"].add(user)
                     statistics["gpu_vram"]["4_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif "vega64" in system_information_trimmed:
                     statistics["gpu"]["amd"]["dedicated_gcn5.0"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif "vega56" in system_information_trimmed:
                     statistics["gpu"]["amd"]["dedicated_gcn5.0"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-25000"].add(user)
                 elif (
                     "rx590" in system_information_trimmed
                     or "radeon590" in system_information_trimmed
@@ -2707,6 +2741,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx580" in system_information_trimmed
                     or "radeon580" in system_information_trimmed
@@ -2717,6 +2752,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx570" in system_information_trimmed
                     or "radeon570" in system_information_trimmed
@@ -2727,6 +2763,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx560" in system_information_trimmed
                     or "radeon560" in system_information_trimmed
@@ -2737,6 +2774,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "rx550" in system_information_trimmed
                     or "radeon550" in system_information_trimmed
@@ -2747,6 +2785,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "rx480" in system_information_trimmed
                     or "radeon480" in system_information_trimmed
@@ -2757,6 +2796,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx470" in system_information_trimmed
                     or "radeon470" in system_information_trimmed
@@ -2767,6 +2807,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "rx460" in system_information_trimmed
                     or "radeon460" in system_information_trimmed
@@ -2777,6 +2818,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif "radeon" in system_information_trimmed:
                     statistics["gpu"]["amd"]["unknown"].add(user)
 
@@ -2786,127 +2828,151 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif "a770" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["16_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif "a750" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif "a580" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif "a380" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["6_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif "a350" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["4_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif "a310" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["4_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif "uhd770" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd750" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd730" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd710" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "irisplus655" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "irisplus645" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd630" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd620" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd617" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd615" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "uhd610" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "irisplus650" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "irisplus640" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd630" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd620" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd615" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd610" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif (
                     "iris580" in system_information_trimmed
                 ):  # Originally "irispro580", but we stripped "pro" to make parsing Ryzen PRO easier.
@@ -2914,36 +2980,43 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "iris550" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "iris540" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd530" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd520" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd515" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd510" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif (
                     "iris6200" in system_information_trimmed
                 ):  # Originally "irispro6200", but we stripped "pro" to make parsing Ryzen PRO easier.
@@ -2951,31 +3024,37 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "iris6100" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd6000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd5600" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd5500" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd5300" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif (
                     "iris5200" in system_information_trimmed
                 ):  # Originally "irispro5200", but we stripped "pro" to make parsing Ryzen PRO easier.
@@ -2983,46 +3062,55 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "iris5100" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd5000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd4600" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd4400" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd4200" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd4000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd2500" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd3000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen6"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "hd2000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen6"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
@@ -3033,6 +3121,9 @@ def main() -> None:
                     or "intelhd" in system_information_trimmed
                 ):
                     statistics["gpu"]["intel"]["unknown"].add(user)
+                    # Assume this is a slow GPU, as even high-end Iris Xe barely scratches
+                    # the 2500 points mark as of June 2023.
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
 
     statistics["num_reports"] = len(user_system_infos)
     print(f"Number of scannable reports: {statistics['num_reports']}")
