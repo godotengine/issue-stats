@@ -27,6 +27,26 @@
             intel: "Intel",
             nvidia: "NVIDIA",
 
+            // CPU x86 features.
+            avx512: "AVX-512",
+            avx2: "AVX2",
+            avx: "AVX",
+            "sse4.2": "SSE 4.2",
+
+            // AMD GPU generations.
+            dedicated_rdna3: "Dedi. RDNA3",
+            dedicated_rdna2: "Dedi. RDNA2",
+            dedicated_rdna1: "Dedi. RDNA1",
+            "dedicated_gcn5.0": "Dedi. GCN 5.0",
+            "dedicated_gcn4.0": "Dedi. GCN 4.0",
+            "dedicated_gcn3.0": "Dedi. GCN 3.0",
+            "dedicated_gcn2.0": "Dedi. GCN 2.0",
+            "dedicated_gcn1.0": "Dedi. GCN 1.0",
+            "dedicated_vliw4": "Dedi. VLIW4",
+            integrated_rdna3: "IGP RDNA3",
+            integrated_rdna2: "IGP RDNA2",
+            "integrated_gcn5.0": "IGP GCN 5.0",
+
             unknown: "Other/Unknown",
         };
 
@@ -42,13 +62,60 @@
             intel: "#2074d9",
             nvidia: "#65a30d",
 
+            // Windows versions.
             7: "#0C4A6E",
             8: "#075985",
             8.1: "#0369A1",
             10: "#0284C7",
             11: "#38BDF8",
 
+            // macOS versions.
+            10.12: "#1C1917",
+            10.13: "#292524",
+            10.14: "#44403C",
+            10.15: "#57534E",
+            // 11 is already taken for Windows 11.
+            12: "#78716C",
+            13: "#A8A29E",
+            14: "#D6D3D1",
+
+            // Linux distributions.
+            ubuntu: "#EA580C",
+            fedora: "#1E40AF",
+            debian: "#BE123C",
+            mint: "#65A30D",
+            arch: "#0891B2",
+
+            // Android versions (some are already reserved above).
+            5: "#365314",
+            6: "#3F6212",
+            9: "#84CC16",
+
+            // iOS versions (some are already reserved above).
+            15: "#C026D3",
+            16: "#D946EF",
+            17: "#E879F9",
+
+            // Web browsers.
+            firefox: "#EA580C",
+            chrome: "#65A30D",
+            edge: "#0EA5E9",
+            safari: "#64748B",
+            opera: "#DC2626",
+
+            // CPU x86 features.
+            avx512: "#F9A8D4",
+            avx2: "#EC4899",
+            avx: "#BE185D",
+            "sse4.2": "#831843",
+
+            // GPU feature support.
+            yes: "#84CC16",
+            no: "#DC2626",
+
             unknown: "#808080",
+
+            // TODO: Add CPU/GPU generation and VRAM size colors.
         };
 
         const ChartDatatype = {
@@ -61,7 +128,9 @@
 
         function getRemappedString(label) {
             // Capitalize string (like_this => Like This) if not found in the remaps table.
-            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase()).replace("Dedicated", "Dedi.").replace("Integrated", "IGP");
+            // Replace "Dedicated" and "Integrated" with shorter forms if not using the remaps table (useful for NVIDIA GPUs).
+            // Replace " Gb" for VRAM sizes.
+            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase()).replace("Dedicated", "Dedi.").replace("Integrated", "IGP").replace(" Gb", " GB");
         }
 
         function getChartColor(label) {
@@ -90,16 +159,34 @@
 
             createChart("#chart-operating-system", ChartDatatype.AGGREGATE, statistics.os);
             createChart("#chart-windows-version", ChartDatatype.INDIVIDUAL, statistics.os.windows);
+            createChart("#chart-macos-version", ChartDatatype.INDIVIDUAL, statistics.os.macos);
+            createChart("#chart-linux-distribution", ChartDatatype.INDIVIDUAL, statistics.os.linux);
+            createChart("#chart-android-version", ChartDatatype.INDIVIDUAL, statistics.os.android);
+            createChart("#chart-ios-version", ChartDatatype.INDIVIDUAL, statistics.os.ios);
+            createChart("#chart-web-browser", ChartDatatype.INDIVIDUAL, statistics.os.web);
 
             createChart("#chart-cpu-vendor", ChartDatatype.AGGREGATE, statistics.cpu);
-            createChart("#chart-cpu-core-count", ChartDatatype.INDIVIDUAL, statistics.cpu_core_count);
             createChart("#chart-cpu-amd", ChartDatatype.INDIVIDUAL, statistics.cpu.amd);
             createChart("#chart-cpu-intel", ChartDatatype.INDIVIDUAL, statistics.cpu.intel);
+
+            createChart("#chart-cpu-core-count", ChartDatatype.INDIVIDUAL, statistics.cpu_core_count);
+            createChart("#chart-cpu-x86-features", ChartDatatype.INDIVIDUAL, statistics.cpu_x86_features);
+            //createChart("#chart-cpu-passmark-multi", ChartDatatype.INDIVIDUAL, statistics.cpu_passmark_score.multi_thread);
+            //createChart("#chart-cpu-passmark-single", ChartDatatype.INDIVIDUAL, statistics.cpu_passmark_score.single_thread);
 
             createChart("#chart-gpu-vendor", ChartDatatype.AGGREGATE, statistics.gpu);
             createChart("#chart-gpu-amd", ChartDatatype.INDIVIDUAL, statistics.gpu.amd);
             createChart("#chart-gpu-intel", ChartDatatype.INDIVIDUAL, statistics.gpu.intel);
             createChart("#chart-gpu-nvidia", ChartDatatype.INDIVIDUAL, statistics.gpu.nvidia);
+
+            createChart("#chart-gpu-vram", ChartDatatype.INDIVIDUAL, statistics.gpu_vram);
+            createChart("#chart-gpu-raytracing-dedicated", ChartDatatype.INDIVIDUAL, statistics.gpu_raytracing.dedicated);
+            createChart("#chart-gpu-raytracing-integrated", ChartDatatype.INDIVIDUAL, statistics.gpu_raytracing.integrated);
+            createChart("#chart-gpu-vrs-dedicated", ChartDatatype.INDIVIDUAL, statistics.gpu_vrs.dedicated);
+            createChart("#chart-gpu-vrs-integrated", ChartDatatype.INDIVIDUAL, statistics.gpu_vrs.integrated);
+            createChart("#chart-gpu-mesh-shaders-dedicated", ChartDatatype.INDIVIDUAL, statistics.gpu_mesh_shaders.dedicated);
+            createChart("#chart-gpu-mesh-shaders-integrated", ChartDatatype.INDIVIDUAL, statistics.gpu_mesh_shaders.integrated);
+            //createChart("#chart-gpu-passmark", ChartDatatype.INDIVIDUAL, statistics.gpu_passmark_score);
         });
     </script>
 </head>
@@ -128,18 +215,50 @@
     <h3>Windows version</h3>
     <div id="chart-windows-version"></div>
 
+    <h3>macOS version</h3>
+    <div id="chart-macos-version"></div>
+
+    <h3>Linux distribution</h3>
+    <div id="chart-linux-distribution"></div>
+
+    <h3>Android version</h3>
+    <div id="chart-android-version"></div>
+
+    <h3>iOS version</h3>
+    <div id="chart-ios-version"></div>
+
+    <h3>Web browser</h3>
+    <em>The web browser used when reporting issues related to the web editor or web export.</em>
+    <div id="chart-web-browser"></div>
+
     <h2>CPU vendor</h2>
     <div id="chart-cpu-vendor"></div>
-
-    <h2>CPU physical core count</h2>
-    <em>In CPUs with hybrid (big.LITTLE) topologies, both "big" cores and "little" cores are summed together.</em>
-    <div id="chart-cpu-core-count"></div>
 
     <h3>AMD CPU generation</h3>
     <div id="chart-cpu-amd"></div>
 
     <h3>Intel CPU generation</h3>
+    <em>Laptop CPUs are currently categorized as "Other/Unknown".</em>
     <div id="chart-cpu-intel"></div>
+
+    <h2>CPU physical core count</h2>
+    <em>For CPUs with hybrid (big.LITTLE) topologies, both "big" cores and "little" cores are summed together.</em>
+    <div id="chart-cpu-core-count"></div>
+
+    <h2>Highest supported x86 CPU instruction set</h2>
+    <em>
+        Support for a new instruction set implies support for older instruction sets. For instance, supporting AVX-512 implies supporting AVX2, AVX and SSE4.2.<br>
+        Godot currently only requires SSE2 for official binaries, which is supported on all x86_64 CPUs.
+    </em>
+    <div id="chart-cpu-x86-features"></div>
+
+    <!-- <h2>CPU multi-thread performance score</h2>
+    <em>Scores sourced from <a href="https://www.cpubenchmark.net/">PassMark</a>.</em>
+    <div id="chart-cpu-passmark-multi"></div>
+
+    <h2>CPU single-thread performance score</h2>
+    <em>Scores sourced from <a href="https://www.cpubenchmark.net/">PassMark</a>.</em>
+    <div id="chart-cpu-passmark-single"></div> -->
 
     <h2>GPU vendor</h2>
     <div id="chart-gpu-vendor"></div>
@@ -152,6 +271,38 @@
 
     <h3>NVIDIA GPU generation</h3>
     <div id="chart-gpu-nvidia"></div>
+
+    <h2>GPU video memory</h2>
+    <em>Only dedicated GPUs are taken into account.</em>
+    <div id="chart-gpu-vram"></div>
+
+    <h2>GPU hardware-accelerated raytracing support</h2>
+    <em>
+        Raytracing is currently not used in Godot.<br>
+        This metric only checks whether it's supported in hardware, not whether the GPU is fast enough for hardware-accelerated raytracing to be viable for gaming.
+    </em>
+    <h3>Dedicated GPUs</h3>
+    <div id="chart-gpu-raytracing-dedicated"></div>
+    <h3>Integrated GPUs</h3>
+    <div id="chart-gpu-raytracing-integrated"></div>
+
+    <h2>GPU variable rate shading support</h2>
+    <em>Variable rate shading can be optionally used in Godot 4.</em>
+    <h3>Dedicated GPUs</h3>
+    <div id="chart-gpu-vrs-dedicated"></div>
+    <h3>Integrated GPUs</h3>
+    <div id="chart-gpu-vrs-integrated"></div>
+
+    <h2>GPU mesh shaders support</h2>
+    <em>Mesh shaders are currently not used in Godot.</em>
+    <h3>Dedicated GPUs</h3>
+    <div id="chart-gpu-mesh-shaders-dedicated"></div>
+    <h3>Integrated GPUs</h3>
+    <div id="chart-gpu-mesh-shaders-integrated"></div>
+
+    <!-- <h2>GPU performance score</h2>
+    <em>Scores sourced from <a href="https://www.videocardbenchmark.net/">PassMark</a>.</em>
+    <div id="chart-gpu-passmark"></div> -->
 
     <footer>
         © 2023-present Hugo Locurcio and contributors<br>

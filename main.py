@@ -259,7 +259,7 @@ def main() -> None:
             "16_gb": set(),
             "20_gb": set(),
             "24_gb": set(),
-            "more_than_24_gb": set(),
+            ">24_gb": set(),
         },
         "gpu_passmark_score": {
             # Scores from <https://www.videocardbenchmark.net/>.
