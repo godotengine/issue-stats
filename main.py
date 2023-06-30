@@ -26,7 +26,7 @@ def main() -> None:
     # TODO: Retry requests a few times if they fail.
     num_queries = 30
     for i in range(num_queries):
-        print(f"Running query #{i + 1} of {num_queries}...")
+        print(f"Running query {i + 1}/{num_queries}...")
         query = gql(
             """
             query($cursor: String) {
@@ -1411,7 +1411,6 @@ def main() -> None:
                     "intelcore" in system_information_trimmed
                     or "inteli" in system_information_trimmed
                 ):
-                    # Second part of the `if` statement is for users who write "Intel i7" instead of "Intel Core i7".
                     statistics["cpu"]["intel"]["unknown"].add(user)
 
                 # TODO: Add laptop AMD CPUs, Athlons and Threadrippers.
@@ -1731,6 +1730,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"][">30000"].add(user)
                 elif (
                     "4090laptop" in system_information_trimmed
                     or "4090mobile" in system_information_trimmed
@@ -1740,6 +1740,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "tx4080" in system_information_trimmed
                     or "geforce4080" in system_information_trimmed
@@ -1750,6 +1751,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"][">30000"].add(user)
                 elif (
                     "4080laptop" in system_information_trimmed
                     or "4080mobile" in system_information_trimmed
@@ -1759,6 +1761,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "tx4070ti" in system_information_trimmed
                     or "geforce4070ti" in system_information_trimmed
@@ -1769,6 +1772,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"][">30000"].add(user)
                 elif (
                     "tx4070" in system_information_trimmed
                     or "geforce4070" in system_information_trimmed
@@ -1779,6 +1783,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "4070laptop" in system_information_trimmed
                     or "4070mobile" in system_information_trimmed
@@ -1788,6 +1793,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx4060ti" in system_information_trimmed
                     or "geforce4060ti" in system_information_trimmed
@@ -1799,6 +1805,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "tx4060" in system_information_trimmed
                     or "geforce4060" in system_information_trimmed
@@ -1809,6 +1816,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "4060laptop" in system_information_trimmed
                     or "4060mobile" in system_information_trimmed
@@ -1818,6 +1826,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "4050laptop" in system_information_trimmed
                     or "4050mobile" in system_information_trimmed
@@ -1827,16 +1836,29 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                elif (
+                    "tx3090ti" in system_information_trimmed
+                    or "geforce3090ti" in system_information_trimmed
+                    or "nvidia3090ti" in system_information_trimmed
+                ):
+                    statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
+                    statistics["gpu_vram"]["24_gb"].add(user)
+                    statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "tx3090" in system_information_trimmed
                     or "geforce3090" in system_information_trimmed
                     or "nvidia3090" in system_information_trimmed
                 ):
                     statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
-                    statistics["gpu_vram"]["10_gb"].add(user)
+                    statistics["gpu_vram"]["24_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "tx3080ti" in system_information_trimmed
                     or "geforce3080ti" in system_information_trimmed
@@ -1847,6 +1869,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "3080tilaptop" in system_information_trimmed
                     or "3080timobile" in system_information_trimmed
@@ -1856,6 +1879,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "tx3080" in system_information_trimmed
                     or "geforce3080" in system_information_trimmed
@@ -1867,6 +1891,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
                 elif (
                     "3080laptop" in system_information_trimmed
                     or "3080mobile" in system_information_trimmed
@@ -1876,6 +1901,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx3070ti" in system_information_trimmed
                     or "geforce3070ti" in system_information_trimmed
@@ -1886,6 +1912,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "3070tilaptop" in system_information_trimmed
                     or "3070timobile" in system_information_trimmed
@@ -1895,6 +1922,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx3070" in system_information_trimmed
                     or "geforce3070" in system_information_trimmed
@@ -1905,6 +1933,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "3070laptop" in system_information_trimmed
                     or "3070mobile" in system_information_trimmed
@@ -1914,15 +1943,18 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
-                    "3060tilaptop" in system_information_trimmed
-                    or "3060timobile" in system_information_trimmed
+                    "tx3060ti" in system_information_trimmed
+                    or "geforce3060ti" in system_information_trimmed
+                    or "nvidia3060ti" in system_information_trimmed
                 ):
                     statistics["gpu"]["nvidia"]["dedicated_ampere"].add(user)
-                    statistics["gpu_vram"]["6_gb"].add(user)
+                    statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "tx3060" in system_information_trimmed
                     or "geforce3060" in system_information_trimmed
@@ -1934,6 +1966,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "3060laptop" in system_information_trimmed
                     or "3060mobile" in system_information_trimmed
@@ -1943,6 +1976,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "3050tilaptop" in system_information_trimmed
                     or "3050timobile" in system_information_trimmed
@@ -1952,6 +1986,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "tx3050" in system_information_trimmed
                     or "geforce3050" in system_information_trimmed
@@ -1962,6 +1997,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "3050laptop" in system_information_trimmed
                     or "3050mobile" in system_information_trimmed
@@ -1972,6 +2008,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "tx2080ti" in system_information_trimmed
                     or "geforce2080ti" in system_information_trimmed
@@ -1982,6 +2019,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
                 elif (
                     "tx2080super" in system_information_trimmed
                     or "geforce2080super" in system_information_trimmed
@@ -1992,6 +2030,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx2080" in system_information_trimmed
                     or "geforce2080" in system_information_trimmed
@@ -2002,6 +2041,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx2070super" in system_information_trimmed
                     or "geforce2070super" in system_information_trimmed
@@ -2012,6 +2052,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx2070" in system_information_trimmed
                     or "geforce2070" in system_information_trimmed
@@ -2022,6 +2063,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx2060super" in system_information_trimmed
                     or "geforce2060super" in system_information_trimmed
@@ -2032,16 +2074,21 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "tx2060" in system_information_trimmed
                     or "geforce2060" in system_information_trimmed
                     or "nvidia2060" in system_information_trimmed
                 ):
                     statistics["gpu"]["nvidia"]["dedicated_turing"].add(user)
+                    # Assume 6 GB variant, which is much more widespread than the 12 GB one.
                     statistics["gpu_vram"]["6_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    # 6 GB variant is slower than the 12 GB one;
+                    # the 12 GB one is in the 15000-20000 performance bracket.
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1660ti" in system_information_trimmed
                     or "geforce1660ti" in system_information_trimmed
@@ -2052,6 +2099,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1660super" in system_information_trimmed
                     or "geforce1660super" in system_information_trimmed
@@ -2062,6 +2110,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1660" in system_information_trimmed
                     or "geforce1660" in system_information_trimmed
@@ -2072,6 +2121,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1650super" in system_information_trimmed
                     or "geforce1650super" in system_information_trimmed
@@ -2082,6 +2132,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1650" in system_information_trimmed
                     or "geforce1650" in system_information_trimmed
@@ -2092,6 +2143,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx1630" in system_information_trimmed
                     or "geforce1630" in system_information_trimmed
@@ -2102,6 +2154,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx1080ti" in system_information_trimmed
                     or "geforce1080ti" in system_information_trimmed
@@ -2112,6 +2165,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "gtx1080" in system_information_trimmed
                     or "geforce1080" in system_information_trimmed
@@ -2122,6 +2176,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
                 elif (
                     "gtx1070ti" in system_information_trimmed
                     or "geforce1070ti" in system_information_trimmed
@@ -2132,6 +2187,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1070" in system_information_trimmed
                     or "geforce1070" in system_information_trimmed
@@ -2142,6 +2198,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1060" in system_information_trimmed
                     or "geforce1060" in system_information_trimmed
@@ -2155,6 +2212,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx1050ti" in system_information_trimmed
                     or "geforce1050ti" in system_information_trimmed
@@ -2165,6 +2223,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx1050" in system_information_trimmed
                     or "geforce1050" in system_information_trimmed
@@ -2175,6 +2234,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx980ti" in system_information_trimmed
                     or "geforce980ti" in system_information_trimmed
@@ -2185,6 +2245,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx980" in system_information_trimmed
                     or "geforce980" in system_information_trimmed
@@ -2195,6 +2256,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
                 elif (
                     "gtx970" in system_information_trimmed
                     or "geforce970" in system_information_trimmed
@@ -2207,6 +2269,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx960" in system_information_trimmed
                     or "geforce960" in system_information_trimmed
@@ -2217,6 +2280,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx950" in system_information_trimmed
                     or "geforce950" in system_information_trimmed
@@ -2227,6 +2291,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx750ti" in system_information_trimmed
                     or "geforce750ti" in system_information_trimmed
@@ -2237,6 +2302,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx750" in system_information_trimmed
                     or "geforce750" in system_information_trimmed
@@ -2247,17 +2313,20 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx690" in system_information_trimmed
                     or "geforce690" in system_information_trimmed
                     or "nvidia690" in system_information_trimmed
                 ):
                     statistics["gpu"]["nvidia"]["dedicated_kepler"].add(user)
-                    # Dual-GPU card; since Godot doesn't support multi-GPU, only account for the VRAM of a single GPU.
+                    # Dual-GPU card; since Godot doesn't support multi-GPU,
+                    # only account for the VRAM and performance of a single GPU.
                     statistics["gpu_vram"]["2_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx680" in system_information_trimmed
                     or "geforce680" in system_information_trimmed
@@ -2268,6 +2337,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx670" in system_information_trimmed
                     or "geforce670" in system_information_trimmed
@@ -2278,6 +2348,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
                 elif (
                     "gtx660ti" in system_information_trimmed
                     or "geforce660ti" in system_information_trimmed
@@ -2288,6 +2359,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx660" in system_information_trimmed
                     or "geforce660" in system_information_trimmed
@@ -2298,6 +2370,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx650ti" in system_information_trimmed
                     or "geforce650ti" in system_information_trimmed
@@ -2308,6 +2381,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx650" in system_information_trimmed
                     or "geforce650" in system_information_trimmed
@@ -2318,18 +2392,21 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif (
                     "gtx590" in system_information_trimmed
                     or "geforce590" in system_information_trimmed
                     or "nvidia590" in system_information_trimmed
                 ):
                     statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
-                    # Dual-GPU card; since Godot doesn't support multi-GPU, only account for the VRAM of a single GPU.
+                    # Dual-GPU card; since Godot doesn't support multi-GPU,
+                    # only account for the VRAM and performance of a single GPU.
                     # 1.5 GB of VRAM per GPU; round down to 1 GB.
                     statistics["gpu_vram"]["1_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx580" in system_information_trimmed
                     or "geforce580" in system_information_trimmed
@@ -2341,6 +2418,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx570" in system_information_trimmed
                     or "geforce570" in system_information_trimmed
@@ -2352,6 +2430,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx560ti" in system_information_trimmed
                     or "geforce560ti" in system_information_trimmed
@@ -2362,6 +2441,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx560" in system_information_trimmed
                     or "geforce560" in system_information_trimmed
@@ -2372,6 +2452,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
                 elif (
                     "gtx550ti" in system_information_trimmed
                     or "geforce550ti" in system_information_trimmed
@@ -2382,13 +2463,19 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                elif "gt710" in system_information_trimmed:
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                elif (
+                    "gt710" in system_information_trimmed
+                    or "geforce710" in system_information_trimmed
+                    or "nvidia710" in system_information_trimmed
+                ):
                     # The GeForce GT 710 is a Fermi GPU despite being in the 700 series.
                     statistics["gpu"]["nvidia"]["dedicated_fermi"].add(user)
                     statistics["gpu_vram"]["12_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
+                    statistics["gpu_passmark_score"]["<2500"].add(user)
                 elif "nvidia" in system_information_trimmed:
                     statistics["gpu"]["nvidia"]["unknown"].add(user)
 
