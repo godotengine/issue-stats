@@ -4,53 +4,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Godot GitHub issue statistics</title>
     <link rel="stylesheet" href="thirdparty/water.min.css">
     <style>
+        body {
+            line-height: 1.6;
+        }
 
+        h2 {
+            border-top: 0.125rem solid hsla(0, 0%, 50%, 0.4);
+            padding-top: 0.5rem;
+        }
     </style>
     <script src="thirdparty/frappe-charts.umd.min.js"></script>
     <script src="thirdparty/ky.umd.min.js"></script>
     <script type="module">
+        const capitalizeStringRemaps = {
+            macos: "macOS",
+            ios: "iOS",
+
+            amd: "AMD",
+            intel: "Intel",
+            nvidia: "NVIDIA",
+
+            unknown: "Other/Unknown",
+        };
+
+        const chartColors = {
+            android: "#84CC16",
+            ios: "#A855F7",
+            linux: "#EAB308",
+            macos: "#A8A29E",
+            web: "#F97316",
+            windows: "#0EA5E9",
+
+            amd: "#b91c1c",
+            intel: "#2074d9",
+            nvidia: "#65a30d",
+
+            7: "#0C4A6E",
+            8: "#075985",
+            8.1: "#0369A1",
+            10: "#0284C7",
+            11: "#38BDF8",
+
+            unknown: "#808080",
+        };
+
+        const ChartDatatype = {
+            // Values are a sum of all subvalues.
+            AGGREGATE: 0,
+
+            // Values are reported individually.
+            INDIVIDUAL: 1,
+        }
+
+        function getRemappedString(label) {
+            // Capitalize string (like_this => Like This) if not found in the remaps table.
+            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase()).replace("Dedicated", "Dedi.").replace("Integrated", "IGP");
+        }
+
+        function getChartColor(label) {
+            return chartColors[label] ?? '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+        }
+
+        // Function that sums all values in an array (use with `reduce()`).
+        const sum = (partialSum, value) => partialSum + value;
+
+        // Creates a Frappe chart (automatically added to the DOM).
+        function createChart(id, chartDatatype, dataset) {
+            new frappe.Chart(id, {
+                data: {
+                    labels: Object.keys(dataset).map(label => getRemappedString(label)),
+                    datasets: [{ values: chartDatatype == ChartDatatype.INDIVIDUAL ? Object.values(dataset) : Object.values(dataset).map(subObject => Object.values(subObject).reduce(sum, 0)) }],
+                },
+                type: "percentage",
+                colors: Object.keys(dataset).map(label => getChartColor(label)),
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", async function () {
             const statistics = await ky.get('statistics.json').json();
 
-            const colorAmd = "#b91c1c";
-            const colorIntel = "#2074d9";
-            const colorNvidia = "#65a30d";
+            document.getElementById("num-reports").innerText = statistics.num_reports;
 
-            // Function that sums all values in an array (use with `reduce()`).
-            const sum = (partialSum, value) => partialSum + value;
+            createChart("#chart-operating-system", ChartDatatype.AGGREGATE, statistics.os);
+            createChart("#chart-windows-version", ChartDatatype.INDIVIDUAL, statistics.os.windows);
 
-            new frappe.Chart("#chart-cpu-vendor", {
-                data: {
-                    labels: ["AMD", "Intel"],
-                    datasets: [{ values: [Object.values(statistics.cpu.amd).reduce(sum, 0), Object.values(statistics.cpu.intel).reduce(sum, 0)] }],
-                },
-                type: "percentage",
-                colors: [colorAmd, colorIntel],
-            });
+            createChart("#chart-cpu-vendor", ChartDatatype.AGGREGATE, statistics.cpu);
+            createChart("#chart-cpu-core-count", ChartDatatype.INDIVIDUAL, statistics.cpu_core_count);
+            createChart("#chart-cpu-amd", ChartDatatype.INDIVIDUAL, statistics.cpu.amd);
+            createChart("#chart-cpu-intel", ChartDatatype.INDIVIDUAL, statistics.cpu.intel);
 
-            new frappe.Chart("#chart-gpu-vendor", {
-                data: {
-                    labels: ["AMD", "Intel", "NVIDIA"],
-                    datasets: [{ values: [Object.values(statistics.gpu.amd).reduce(sum, 0), Object.values(statistics.gpu.intel).reduce(sum, 0), Object.values(statistics.gpu.nvidia).reduce(sum, 0)] }],
-                },
-                type: "percentage",
-                colors: [colorAmd, colorIntel, colorNvidia],
-            });
+            createChart("#chart-gpu-vendor", ChartDatatype.AGGREGATE, statistics.gpu);
+            createChart("#chart-gpu-amd", ChartDatatype.INDIVIDUAL, statistics.gpu.amd);
+            createChart("#chart-gpu-intel", ChartDatatype.INDIVIDUAL, statistics.gpu.intel);
+            createChart("#chart-gpu-nvidia", ChartDatatype.INDIVIDUAL, statistics.gpu.nvidia);
         });
     </script>
 </head>
 
 <body>
-    <h1>Statistics</h1>
+    <h1>Godot GitHub issue statistics</h1>
+    <p>
+        This page lists hardware and software information reported by users on the
+        <a href="https://github.com/godotengine/godot/issues">issue tracker of the main Godot repository</a>.
+        As such, these statistics are <em>not</em> representative of the entire Godot community,
+        but they allow seeing what kind of hardware and software is popular among issue reporters.
+    </p>
+    <p>
+        These statistics were compiled from
+        <strong><span id="num-reports">----</span></strong> recent user reports.
+    </p>
+    <p>
+        <strong>Note:</strong> The total number of reported hardware/software
+        metrics does not add up to this number, as a user may report several
+        issues with identical hardware/software configuration.
+    </p>
+
+    <h2>Operating system</h2>
+    <div id="chart-operating-system"></div>
+
+    <h3>Windows version</h3>
+    <div id="chart-windows-version"></div>
 
     <h2>CPU vendor</h2>
     <div id="chart-cpu-vendor"></div>
 
+    <h2>CPU physical core count</h2>
+    <em>In CPUs with hybrid (big.LITTLE) topologies, both "big" cores and "little" cores are summed together.</em>
+    <div id="chart-cpu-core-count"></div>
+
+    <h3>AMD CPU generation</h3>
+    <div id="chart-cpu-amd"></div>
+
+    <h3>Intel CPU generation</h3>
+    <div id="chart-cpu-intel"></div>
+
     <h2>GPU vendor</h2>
     <div id="chart-gpu-vendor"></div>
+
+    <h3>AMD GPU generation</h3>
+    <div id="chart-gpu-amd"></div>
+
+    <h3>Intel GPU generation</h3>
+    <div id="chart-gpu-intel"></div>
+
+    <h3>NVIDIA GPU generation</h3>
+    <div id="chart-gpu-nvidia"></div>
 
     <footer>
         © 2023-present Hugo Locurcio and contributors<br>
