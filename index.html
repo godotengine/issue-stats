@@ -39,9 +39,6 @@
     <script src="thirdparty/ky.umd.min.js"></script>
     <script type="module">
         const capitalizeStringRemaps = {
-            macos: "macOS",
-            ios: "iOS",
-
             amd: "AMD",
             intel: "Intel",
             nvidia: "NVIDIA",
@@ -51,6 +48,9 @@
             avx2: "AVX2",
             avx: "AVX",
             "sse4.2": "SSE 4.2",
+
+            // Arch Linux.
+            arch: "Arch or Arch-based",
 
             // AMD GPU generations.
             dedicated_rdna3: "Dedi. RDNA3",
@@ -70,67 +70,193 @@
         };
 
         const chartColors = {
-            android: "#84CC16",
-            ios: "#A855F7",
-            linux: "#EAB308",
-            macos: "#A8A29E",
-            web: "#F97316",
-            windows: "#0EA5E9",
+            android: "#84cc16",
+            ios: "#a855f7",
+            linux: "#eab308",
+            macos: "#a8a29e",
+            web: "#f97316",
+            windows: "#0ea5e9",
 
             amd: "#b91c1c",
             intel: "#2074d9",
             nvidia: "#65a30d",
 
             // Windows versions.
-            7: "#0C4A6E",
-            8: "#075985",
-            8.1: "#0369A1",
-            10: "#0284C7",
-            11: "#38BDF8",
+            windows_7: "#0c4a6e",
+            windows_8: "#075985",
+            "windows_8.1": "#0369a1",
+            windows_10: "#0284c7",
+            windows_11: "#38bdf8",
 
             // macOS versions.
-            10.12: "#1C1917",
-            10.13: "#292524",
-            10.14: "#44403C",
-            10.15: "#57534E",
-            // 11 is already taken for Windows 11.
-            12: "#78716C",
-            13: "#A8A29E",
-            14: "#D6D3D1",
+            "macos_10.12": "#1c1917",
+            "macos_10.13": "#292524",
+            "macos_10.14": "#44403c",
+            "macos_10.15": "#57534e",
+            macos_11: "#78716c",
+            macos_12: "#a8a29e",
+            macos_13: "#d6d3d1",
+            macos_14: "#e7e5e4",
 
             // Linux distributions.
-            ubuntu: "#EA580C",
-            fedora: "#1E40AF",
-            debian: "#BE123C",
-            mint: "#65A30D",
-            arch: "#0891B2",
+            ubuntu: "#ea580c",
+            fedora: "#1e40af",
+            debian: "#be123c",
+            mint: "#65a30d",
+            arch: "#0891b2",
 
-            // Android versions (some are already reserved above).
-            5: "#365314",
-            6: "#3F6212",
-            9: "#84CC16",
+            // Android versions.
+            android_14: "#dcfce7",
+            android_13: "#bbf7d0",
+            android_12: "#86efac",
+            android_11: "#4ade80",
+            android_10: "#22c55e",
+            android_9: "#16a34a",
+            android_8: "#15803d",
+            android_7: "#166534",
+            android_6: "#14532d",
+            android_5: "#052e16",
 
-            // iOS versions (some are already reserved above).
-            15: "#C026D3",
-            16: "#D946EF",
-            17: "#E879F9",
+            // iOS versions (TODO).
+            ios_17: "#f0abfc",
+            ios_16: "#e879f9",
+            ios_15: "#d946ef",
+            ios_14: "#c026d3",
+            ios_13: "#a21caf",
+            ios_12: "#86198f",
+            ios_11: "#701a75",
+            ios_10: "#4a044e",
 
             // Web browsers.
-            firefox: "#EA580C",
-            chrome: "#65A30D",
-            edge: "#0EA5E9",
-            safari: "#64748B",
-            opera: "#DC2626",
+            firefox: "#ea580c",
+            chrome: "#65a30d",
+            edge: "#0ea5e9",
+            safari: "#64748b",
+            opera: "#dc2626",
+
+            // AMD CPU generation.
+            zen4: "#f87171",
+            zen3: "#ef4444",
+            zen2: "#dc2626",
+            "zen+": "#b91c1c",
+            zen1: "#991b1b",
+            piledriver: "#7f1d1d",
+            bulldozer: "#450a0a",
+
+            // Intel CPU generation.
+            raptor_lake: "#ffffff",
+            alder_lake: "#eff6ff",
+            rocket_lake: "#dbeafe",
+            comet_lake: "#bfdbfe",
+            coffee_lake_refresh: "#93c5fd",
+            coffee_lake: "#60a5fa",
+            kaby_lake: "#3b82f6",
+            skylake: "#2563eb",
+            broadwell: "#1d4ed8",
+            haswell: "#1e40af",
+            ivy_bridge: "#1e3a8a",
+            sandy_bridge: "#172554",
+
+            // CPU physical core count.
+            ">32_cores": "#ecfeff",
+            "32_cores": "#cffafe",
+            "24_cores": "#a5f3fc",
+            "16_cores": "#67e8f9",
+            "14_cores": "#22d3ee",
+            "12_cores": "#06b6d4",
+            "10_cores": "#0891b2",
+            "8_cores": "#0e7490",
+            "6_cores": "#155e75",
+            "4_cores": "#164e63",
+            "2_cores": "#083344",
 
             // CPU x86 features.
-            avx512: "#F9A8D4",
-            avx2: "#EC4899",
-            avx: "#BE185D",
+            avx512: "#f9a8d4",
+            avx2: "#ec4899",
+            avx: "#be185d",
             "sse4.2": "#831843",
 
+            // CPU multi-thread performance score.
+            ">60000": "#fde047",
+            "50000-60000": "#facc15",
+            "40000-50000": "#eab308",
+            "30000-40000": "#ca8a04",
+            "20000-30000": "#a16207",
+            "10000-20000": "#854d0e",
+            "5000-10000": "#713f12",
+            "<5000": "#422006",
+
+            // CPU single-thread performance score.
+            ">4500": "#a5b4fc",
+            "4000-4500": "#818cf8",
+            "3500-4000": "#6366f1",
+            "3000-3500": "#4f46e5",
+            "2500-3000": "#4338ca",
+            "2000-2500": "#3730a3",
+            "1500-2000": "#312e81",
+            "<1500": "#1e1b4b",
+
+            // AMD GPU generation.
+            dedicated_rdna3: "#fecaca",
+            dedicated_rdna2: "#fca5a5",
+            dedicated_rdna1: "#f87171",
+            "dedicated_gcn5.0": "#ef4444",
+            "dedicated_gcn4.0": "#dc2626",
+            "dedicated_gcn3.0": "#b91c1c",
+            "dedicated_gcn2.0": "#991b1b",
+            "dedicated_gcn1.0": "#7f1d1d",
+            dedicated_vliw4: "#450a0a",
+            integrated_rdna3:  "#92400e",
+            integrated_rdna2:  "#78350f",
+            "integrated_gcn5.0": "#451a03",
+
+            // Intel GPU generation.
+            dedicated_arc_alchemist: "#083344",
+            integrated_gen12: "#60a5fa",
+            "integrated_gen9.5": "#3b82f6",
+            integrated_gen9: "#2563eb",
+            integrated_gen8: "#1d4ed8",
+            "integrated_gen7.5": "#1e40af",
+            integrated_gen7: "#1e3a8a",
+            integrated_gen6: "#172554",
+
+            // NVIDIA GPU generation.
+            dedicated_ada_lovelace: "#a3e635",
+            dedicated_ampere: "#84cc16",
+            dedicated_turing: "#65a30d",
+            dedicated_pascal: "#4d7c0f",
+            dedicated_maxwell: "#3f6212",
+            dedicated_kepler: "#365314",
+            dedicated_fermi: "#1a2e05",
+
             // GPU feature support.
-            yes: "#84CC16",
-            no: "#DC2626",
+            yes: "#84cc16",
+            no: "#dc2626",
+
+            // GPU video memory.
+            ">24_gb": "#ffffff",
+            "24_gb": "#ffffff",
+            "20_gb": "#faf5ff",
+            "16_gb": "#f3e8ff",
+            "12_gb": "#e9d5ff",
+            "11_gb": "#d8b4fe",
+            "10_gb": "#c084fc",
+            "8_gb": "#a855f7",
+            "6_gb": "#9333ea",
+            "4_gb": "#7e22ce",
+            "3_gb": "#6b21a8",
+            "2_gb": "#581c87",
+            "1_gb": "#3b0764",
+
+            // GPU performance scores.
+            ">30000": "#fdba74",
+            "25000-30000": "#fb923c",
+            "20000-25000": "#f97316",
+            "15000-20000": "#ea580c",
+            "10000-15000": "#c2410c",
+            //"5000-10000": "#9a3412", Conflicts with CPU multi-thread score.
+            "2500-5000": "#7c2d12",
+            "<2500": "#431407",
 
             unknown: "#808080",
 
@@ -149,7 +275,7 @@
             // Capitalize string (like_this => Like This) if not found in the remaps table.
             // Replace "Dedicated" and "Integrated" with shorter forms if not using the remaps table (useful for NVIDIA GPUs).
             // Replace " Gb" for VRAM sizes.
-            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase()).replace("Dedicated", "Dedi.").replace("Integrated", "IGP").replace(" Gb", " GB");
+            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase()).replace("Dedicated", "Dedi.").replace("Integrated", "IGP").replace(" Gb", " GB").replace("Macos", "macOS").replace("Ios", "iOS");
         }
 
         function getChartColor(label) {
@@ -176,6 +302,9 @@
             const statistics = await ky.get('statistics.json').json();
 
             document.getElementById("num-reports").innerText = statistics.num_reports;
+            // Only include the date in YYYY-MM-DD format.
+            document.getElementById("first-report-date").innerText = statistics.first_report_date.substr(0, 10);
+            document.getElementById("last-report-date").innerText = statistics.last_report_date.substr(0, 10);
 
             createChart("#chart-operating-system", ChartDatatype.AGGREGATE, statistics.os);
             createChart("#chart-windows-version", ChartDatatype.INDIVIDUAL, statistics.os.windows);
@@ -191,8 +320,8 @@
 
             createChart("#chart-cpu-core-count", ChartDatatype.INDIVIDUAL, statistics.cpu_core_count);
             createChart("#chart-cpu-x86-features", ChartDatatype.INDIVIDUAL, statistics.cpu_x86_features);
-            //createChart("#chart-cpu-passmark-multi", ChartDatatype.INDIVIDUAL, statistics.cpu_passmark_score.multi_thread);
-            //createChart("#chart-cpu-passmark-single", ChartDatatype.INDIVIDUAL, statistics.cpu_passmark_score.single_thread);
+            createChart("#chart-cpu-passmark-multi", ChartDatatype.INDIVIDUAL, statistics.cpu_passmark_score.multi_thread);
+            createChart("#chart-cpu-passmark-single", ChartDatatype.INDIVIDUAL, statistics.cpu_passmark_score.single_thread);
 
             createChart("#chart-gpu-vendor", ChartDatatype.AGGREGATE, statistics.gpu);
             createChart("#chart-gpu-amd", ChartDatatype.INDIVIDUAL, statistics.gpu.amd);
@@ -221,7 +350,9 @@
     </p>
     <p>
         These statistics were compiled from
-        <strong><span id="num-reports">----</span></strong> recent user reports.
+        <strong><span id="num-reports">----</span></strong> recent user reports made between
+        <strong><span id="first-report-date">----------</span></strong> and
+        <strong><span id="last-report-date">----------</span></strong>.
     </p>
     <p>
         <strong>Note:</strong> The total number of reported hardware/software
@@ -275,13 +406,16 @@
     <details open>
         <summary>AMD CPU generation</summary>
         <div id="chart-cpu-amd"></div>
+        <div class="chart-caption">
+            Laptop CPUs and Threadrippers are currently categorized as "Other/Unknown".
+        </div>
     </details>
 
     <details open>
         <summary>Intel CPU generation</summary>
         <div id="chart-cpu-intel"></div>
         <div class="chart-caption">
-            Laptop CPUs are currently categorized as "Other/Unknown".
+            Laptop CPUs and Xeons are currently categorized as "Other/Unknown".
         </div>
     </details>
 
@@ -303,21 +437,41 @@
         </div>
     </details>
 
-    <!-- <details open>
-    <summary>CPU multi-thread performance score</summary>
-    <div id="chart-cpu-passmark-multi"></div>
-    <div class="chart-caption">
-        Scores are sourced from <a href="https://www.cpubenchmark.net/">PassMark</a>.
-    </div>
+    <details open>
+        <summary>CPU multi-thread performance score</summary>
+        <div id="chart-cpu-passmark-multi"></div>
+        <div class="chart-caption">
+            Scores are sourced from <a href="https://www.cpucardbenchmark.net/">PassMark</a>.<br>
+            For reference, here are some example CPUs that roughly match each score threshold:
+            <ul>
+                <li><strong>5,000 points:</strong> AMD FX-8140, Intel Core i5-3570K</li>
+                <li><strong>10,000 points:</strong> AMD Ryzen 5 7520U, Intel Core i5-8600</li>
+                <li><strong>20,000 points:</strong> AMD Ryzen 5 5600G, Intel Core i9-10900</li>
+                <li><strong>30,000 points:</strong> AMD Ryzen Threadripper 2970WX, Intel Core i9-9960X</li>
+                <li><strong>40,000 points:</strong> AMD Ryzen 9 5900X, Apple M1 Ultra 20 Core, Intel Core i7-13700</li>
+                <li><strong>50,000 points:</strong> AMD Ryzen 9 7900X</li>
+                <li><strong>60,000 points:</strong> AMD Ryzen 9 7950X, Intel Core i9-13900K</li>
+            </ul>
+        </div>
     </details>
 
     <details open>
-    <summary>CPU single-thread performance score</summary>
-    <div id="chart-cpu-passmark-single"></div>
-    <div class="chart-caption">
-        Scores are sourced from <a href="https://www.cpubenchmark.net/">PassMark</a>.
-    </div>
-    </details> -->
+        <summary>CPU single-thread performance score</summary>
+        <div id="chart-cpu-passmark-single"></div>
+        <div class="chart-caption">
+            Scores are sourced from <a href="https://www.cpucardbenchmark.net/">PassMark</a>.<br>
+            For reference, here are some example CPUs that roughly match each score threshold:
+            <ul>
+                <li><strong>1,500 points:</strong> AMD A8-7500, Intel Core i5-2310</li>
+                <li><strong>2,000 points:</strong> AMD Ryzen 7 1700, Intel Core i5-3550</li>
+                <li><strong>2,500 points:</strong> AMD Ryzen 5 3500, Intel Core i3-8350K</li>
+                <li><strong>3,000 points:</strong> AMD Ryzen 3 5300G, Intel Core i9-9900K</li>
+                <li><strong>3,500 points:</strong> AMD Ryzen 9 5900X, Intel Core i5-12400</li>
+                <li><strong>4,000 points:</strong> AMD Ryzen 5 7600, Apple M2 8 Core, Intel Core i5-13600</li>
+                <li><strong>4,500 points:</strong> Intel Core i9-13900K</li>
+            </ul>
+        </div>
+    </details>
 
     <details open>
         <summary>GPU vendor</summary>
@@ -390,19 +544,13 @@
             Scores are sourced from <a href="https://www.videocardbenchmark.net/">PassMark</a>.<br>
             For reference, here are some example GPUs that roughly match each score threshold:
             <ul>
-                <li><strong>2,500 points:</strong> GeForce GT 1030, GeForce GTX 850M, Radeon HD 8950, Ryzen 5 5600G IGP,
-                    Intel Iris Xe</li>
-                <li><strong>5,000 points:</strong> GeForce GTX 1050, Quadro P2000 with Max-Q Design, Radeon HD 7970,
-                    Radeon R9 M295X</li>
-                <li><strong>10,000 points:</strong> GeForce RTX 1060, GeForce RTX 3050 Ti Laptop GPU, Radeon R9 Fury X
-                </li>
-                <li><strong>15,000 points:</strong> GeForce GTX 1080, GeForce RTX 2080 Mobile, Radeon RX 6600, Radeon RX
-                    7600S</li>
-                <li><strong>20,000 points:</strong> GeForce RTX 3060 Ti, GeForce RTX 3080 Ti Laptop GPU, Radeon RX 6700
-                    XT</li>
+                <li><strong>2,500 points:</strong> GeForce GT 1030, GeForce GTX 850M, Radeon HD 8950, Ryzen 5 5600G IGP, Intel Iris Xe</li>
+                <li><strong>5,000 points:</strong> GeForce GTX 1050, Quadro P2000 with Max-Q Design, Radeon HD 7970, Radeon R9 M295X</li>
+                <li><strong>10,000 points:</strong> GeForce RTX 1060, GeForce RTX 3050 Ti Laptop GPU, Radeon R9 Fury X</li>
+                <li><strong>15,000 points:</strong> GeForce GTX 1080, GeForce RTX 2080 Mobile, Radeon RX 6600, Radeon RX7600S</li>
+                <li><strong>20,000 points:</strong> GeForce RTX 3060 Ti, GeForce RTX 3080 Ti Laptop GPU, Radeon RX 6700XT</li>
                 <li><strong>25,000 points:</strong> GeForce RTX 3080, Radeon RX 6800 XT</li>
-                <li><strong>30,000 points:</strong> GeForce RTX 3090 Ti, GeForce RTX 4090 Laptop GPU, Radeon RX 7900 XTX
-                </li>
+                <li><strong>30,000 points:</strong> GeForce RTX 3090 Ti, GeForce RTX 4090 Laptop GPU, Radeon RX 7900 XTX</li>
             </ul>
         </div>
     </details>
