@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
-from gql import gql, Client
-from gql.transport.aiohttp import AIOHTTPTransport
-from dotenv import load_dotenv
-import os
 import json
+import os
+from typing import Any, Dict
+
+from dotenv import load_dotenv
+from gql import Client, gql
+from gql.transport.aiohttp import AIOHTTPTransport
+from typing_extensions import Final
 
 
 def main() -> None:
     load_dotenv()
 
-    transport = AIOHTTPTransport(
+    transport: Final = AIOHTTPTransport(
         url="https://api.github.com/graphql",
         headers={
             "Authorization": f"Bearer {os.getenv('GODOT_ISSUES_STATS_GITHUB_TOKEN')}"
         },
     )
-    client = Client(transport=transport, fetch_schema_from_transport=True)
+    client: Final = Client(transport=transport, fetch_schema_from_transport=True)
 
-    results = []
+    results: Final = []
     cursor = None
     # Get the 30×100 = 3,000 last issues.
     # TODO: Retry requests a few times if they fail.
@@ -52,13 +55,13 @@ def main() -> None:
         cursor = result["repository"]["issues"]["edges"][0]["cursor"]
 
     # Array of dictionaries with user and system information string.
-    user_system_infos = []
+    user_system_infos: Final = []
 
     # Counters for all statistics (values are a set of usernames).
     # A set is used, so that each user may only increment a given counter once.
     # A single user may increment multiple counters in the same category,
     # as they may report issues with different hardware or operating systems.
-    statistics = {
+    statistics: Dict[str, Any] = {
         "os": {
             "windows": {
                 "11": set(),
@@ -153,7 +156,6 @@ def main() -> None:
             # Number of physical CPU cores.
             # On CPUs with hybrid topologies (such as 12th generation Intel and newer),
             # this is the sum of P-cores and E-cores.
-            "1": set(),
             "2": set(),
             "3": set(),
             "4": set(),
@@ -310,7 +312,7 @@ def main() -> None:
             # Handle deleted ("ghost") users.
             user = (
                 node["node"]["author"]["login"]
-                if node["node"]["author"] != None
+                if node["node"]["author"] is not None
                 else "ghost"
             )
             # Fix CRLF line endings causing issues with detection,
@@ -2945,13 +2947,14 @@ def main() -> None:
                 ):
                     statistics["gpu"]["intel"]["unknown"].add(user)
 
-    print(f"Number of scannable reports: {len(user_system_infos)}")
+    statistics["num_reports"] = len(user_system_infos)
+    print(f"Number of scannable reports: {statistics['num_reports']}")
 
-    output_path = "statistics.json"
+    output_path: Final = "statistics.json"
     with open(output_path, "w") as out_file:
         # Serialize Python sets as their length as an integer, since we only need to know how many users
         # match each metric (and not who exactly).
-        def set_default(obj):
+        def set_default(obj: object) -> int:
             if isinstance(obj, set):
                 return len(obj)
             raise TypeError

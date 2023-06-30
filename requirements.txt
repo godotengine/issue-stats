@@ -1,0 +1,3 @@
+gql[all]==3.4.1
+python-dotenv==1.0.0
+typing_extensions==4.7.0
