@@ -2663,6 +2663,7 @@ def main() -> None:
                 elif (
                     "ryzen" in system_information_trimmed
                     or "fx" in system_information_trimmed
+                    or "athlon" in system_information_trimmed
                     or "phenom" in system_information_trimmed
                     or "threadripper" in system_information_trimmed
                     or "epyc" in system_information_trimmed
