@@ -3429,7 +3429,11 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
                     statistics["gpu_passmark_score"]["<2500"].add(user)
-                elif "nvidia" in system_information_trimmed:
+                elif (
+                    "nvidia" in system_information_trimmed
+                    or "quadro" in system_information_trimmed
+                    or "tesla" in system_information_trimmed
+                ):
                     statistics["gpu"]["nvidia"]["unknown"].add(user)
 
                 if (
@@ -3772,7 +3776,10 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
                     statistics["gpu_passmark_score"]["2500-5000"].add(user)
-                elif "radeon" in system_information_trimmed:
+                elif (
+                    "radeon" in system_information_trimmed
+                    or "firepro" in system_information_trimmed
+                ):
                     statistics["gpu"]["amd"]["unknown"].add(user)
 
                 if "a780" in system_information_trimmed:
