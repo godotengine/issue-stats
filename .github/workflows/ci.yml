@@ -1,0 +1,64 @@
+
+name: Continuous integration
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Every day at midnight (UTC).
+    # This keeps the statistics fresh.
+    - cron: '0 0 * * *'
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Fetch statistics
+        run: |
+          pip install -r requirements.txt
+          GODOT_ISSUES_STATS_GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" ./build.py
+          # Deploy all the files we need in the generated site to the `dist/` folder.
+          mkdir -p dist/
+          cp -r thirdparty/ statistics.json .nojekyll index.html dist/
+          ls -la dist/*
+
+      - name: Minify files
+        run: |
+          curl -fsSLO https://github.com/tdewolff/minify/releases/download/v2.12.7/minify_linux_amd64.tar.gz
+          tar xf minify_linux_amd64.tar.gz minify
+          ./minify --recursive dist --output .
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    # Only deploy from the `main` branch, and never deploy from pull requests.
+    if: ${{ (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
