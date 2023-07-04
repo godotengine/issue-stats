@@ -36,7 +36,8 @@ jobs:
           GODOT_ISSUES_STATS_GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" ./build.py
           # Deploy all the files we need in the generated site to the `dist/` folder.
           mkdir -p dist/
-          cp -r thirdparty/ statistics.json .nojekyll index.html dist/
+          cp -r thirdparty/ statistics.json index.html dist/
+          touch dist/.nojekyll
           ls -la dist/*
 
       - name: Minify files
