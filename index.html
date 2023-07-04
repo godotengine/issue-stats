@@ -206,8 +206,8 @@
             "dedicated_gcn2.0": "#991b1b",
             "dedicated_gcn1.0": "#7f1d1d",
             dedicated_vliw4: "#450a0a",
-            integrated_rdna3:  "#92400e",
-            integrated_rdna2:  "#78350f",
+            integrated_rdna3: "#92400e",
+            integrated_rdna2: "#78350f",
             "integrated_gcn5.0": "#451a03",
 
             // Intel GPU generation.
@@ -273,12 +273,19 @@
 
         function getRemappedString(label) {
             // Capitalize string (like_this => Like This) if not found in the remaps table.
-            // Replace "Dedicated" and "Integrated" with shorter forms if not using the remaps table (useful for NVIDIA GPUs).
+            // Replace "Dedicated" and "Integrated" with shorter forms if not using the remaps table
+            // (useful for NVIDIA GPUs).
             // Replace " Gb" for VRAM sizes.
-            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase()).replace("Dedicated", "Dedi.").replace("Integrated", "IGP").replace(" Gb", " GB").replace("Macos", "macOS").replace("Ios", "iOS");
+            return capitalizeStringRemaps[label] ?? label.replaceAll("_", " ").replace(/\b\w/g, l => l.toUpperCase())
+                .replace("Dedicated", "Dedi.")
+                .replace("Integrated", "IGP")
+                .replace(" Gb", " GB")
+                .replace("Macos", "macOS")
+                .replace("Ios", "iOS");
         }
 
         function getChartColor(label) {
+            // Use a random color as a fallback if the color for the given label can't be found in the list.
             return chartColors[label] ?? '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
         }
 
@@ -290,9 +297,14 @@
             new frappe.Chart(id, {
                 data: {
                     labels: Object.keys(dataset).map(label => getRemappedString(label)),
-                    datasets: [{ values: chartDatatype == ChartDatatype.INDIVIDUAL ? Object.values(dataset) : Object.values(dataset).map(subObject => Object.values(subObject).reduce(sum, 0)) }],
+                    datasets: [{
+                        values: chartDatatype == ChartDatatype.INDIVIDUAL
+                            ? Object.values(dataset)
+                            : Object.values(dataset).map(subObject => Object.values(subObject).reduce(sum, 0)),
+                    }],
                 },
-                height: 145, // Make charts slightly more compact (default height is 168 in our case).
+                // Make charts slightly more compact (default height is 168 in our case).
+                height: 145,
                 type: "percentage",
                 colors: Object.keys(dataset).map(label => getChartColor(label)),
             });
@@ -544,13 +556,19 @@
             Scores are sourced from <a href="https://www.videocardbenchmark.net/">PassMark</a>.<br>
             For reference, here are some example GPUs that roughly match each score threshold:
             <ul>
-                <li><strong>2,500 points:</strong> GeForce GT 1030, GeForce GTX 850M, Radeon HD 8950, Ryzen 5 5600G IGP, Intel Iris Xe</li>
-                <li><strong>5,000 points:</strong> GeForce GTX 1050, Quadro P2000 with Max-Q Design, Radeon HD 7970, Radeon R9 M295X</li>
-                <li><strong>10,000 points:</strong> GeForce RTX 1060, GeForce RTX 3050 Ti Laptop GPU, Radeon R9 Fury X</li>
-                <li><strong>15,000 points:</strong> GeForce GTX 1080, GeForce RTX 2080 Mobile, Radeon RX 6600, Radeon RX7600S</li>
-                <li><strong>20,000 points:</strong> GeForce RTX 3060 Ti, GeForce RTX 3080 Ti Laptop GPU, Radeon RX 6700XT</li>
+                <li><strong>2,500 points:</strong> GeForce GT 1030, GeForce GTX 850M, Radeon HD 8950, Ryzen 5 5600G IGP,
+                    Intel Iris Xe</li>
+                <li><strong>5,000 points:</strong> GeForce GTX 1050, Quadro P2000 with Max-Q Design, Radeon HD 7970,
+                    Radeon R9 M295X</li>
+                <li><strong>10,000 points:</strong> GeForce RTX 1060, GeForce RTX 3050 Ti Laptop GPU, Radeon R9 Fury X
+                </li>
+                <li><strong>15,000 points:</strong> GeForce GTX 1080, GeForce RTX 2080 Mobile, Radeon RX 6600, Radeon
+                    RX7600S</li>
+                <li><strong>20,000 points:</strong> GeForce RTX 3060 Ti, GeForce RTX 3080 Ti Laptop GPU, Radeon RX
+                    6700XT</li>
                 <li><strong>25,000 points:</strong> GeForce RTX 3080, Radeon RX 6800 XT</li>
-                <li><strong>30,000 points:</strong> GeForce RTX 3090 Ti, GeForce RTX 4090 Laptop GPU, Radeon RX 7900 XTX</li>
+                <li><strong>30,000 points:</strong> GeForce RTX 3090 Ti, GeForce RTX 4090 Laptop GPU, Radeon RX 7900 XTX
+                </li>
             </ul>
         </div>
     </details>
