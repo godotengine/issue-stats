@@ -2202,7 +2202,7 @@ def main() -> None:
                     statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
                         user
                     )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-4500"].add(
+                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
                         user
                     )
                 elif (
