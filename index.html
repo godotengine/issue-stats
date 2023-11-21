@@ -41,7 +41,7 @@
     </style>
     <script defer src="thirdparty/frappe-charts.umd.min.js"></script>
     <script defer src="thirdparty/ky.umd.min.js"></script>
-    <script type="module">
+    <script>
         const capitalizeStringRemaps = {
             amd: "AMD",
             intel: "Intel",
@@ -314,6 +314,12 @@
             });
         }
 
+        function setAllDetailsOpen(open) {
+            document.querySelectorAll("details").forEach(details => {
+                details.open = open;
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", async function () {
             const statistics = await ky.get('statistics.json').json();
 
@@ -375,6 +381,9 @@
         metrics does not add up to this number, as a user may report several
         issues with identical hardware/software configuration.
     </p>
+
+    <button onclick="setAllDetailsOpen(true)"><strong>+</strong>&nbsp;&nbsp;Expand all</button>
+    <button onclick="setAllDetailsOpen(false)"><strong>-</strong>&nbsp;&nbsp;Collapse all</button>
 
     <details open>
         <summary>Operating system</summary>
@@ -576,6 +585,9 @@
             </ul>
         </div>
     </details>
+
+    <button onclick="setAllDetailsOpen(true)"><strong>+</strong>&nbsp;&nbsp;Expand all</button>
+    <button onclick="setAllDetailsOpen(false)"><strong>-</strong>&nbsp;&nbsp;Collapse all</button>
 
     <footer>
         © 2023-present Hugo Locurcio and contributors<br>
