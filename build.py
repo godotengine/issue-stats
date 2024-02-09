@@ -191,24 +191,24 @@ def main() -> None:
         "cpu_passmark_score": {
             # Scores from <https://www.cpubenchmark.net/>.
             "multi_thread": {
-                ">60000": set(),
-                "50000-60000": set(),
-                "40000-50000": set(),
-                "30000-40000": set(),
-                "20000-30000": set(),
-                "10000-20000": set(),
-                "5000-10000": set(),
-                "<5000": set(),
+                ">60,000": set(),
+                "50,000-60,000": set(),
+                "40,000-50,000": set(),
+                "30,000-40,000": set(),
+                "20,000-30,000": set(),
+                "10,000-20,000": set(),
+                "5,000-10,000": set(),
+                "<5,000": set(),
             },
             "single_thread": {
-                ">4500": set(),
-                "4000-4500": set(),
-                "3500-4000": set(),
-                "3000-3500": set(),
-                "2500-3000": set(),
-                "2000-2500": set(),
-                "1500-2000": set(),
-                "<1500": set(),
+                ">4,500": set(),
+                "4,000-4,500": set(),
+                "3,500-4,000": set(),
+                "3,000-3,500": set(),
+                "2,500-3,000": set(),
+                "2,000-2,500": set(),
+                "1,500-2,000": set(),
+                "<1,500": set(),
             },
         },
         "gpu": {
@@ -269,14 +269,14 @@ def main() -> None:
         },
         "gpu_passmark_score": {
             # Scores from <https://www.videocardbenchmark.net/>.
-            ">30000": set(),
-            "25000-30000": set(),
-            "20000-25000": set(),
-            "15000-20000": set(),
-            "10000-15000": set(),
-            "5000-10000": set(),
-            "2500-5000": set(),
-            "<2500": set(),
+            ">30,000": set(),
+            "25,000-30,000": set(),
+            "20,000-25,000": set(),
+            "15,000-20,000": set(),
+            "10,000-15,000": set(),
+            "5,000-10,000": set(),
+            "2,500-5,000": set(),
+            "<2,500": set(),
         },
         "gpu_raytracing": {
             # GPUs with hardware-accelerated raytracing (not used in Godot yet).
@@ -490,8 +490,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["24_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"][">60000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"][">4500"].add(user)
+                    statistics["cpu_passmark_score"]["multi_thread"][">60,000"].add(
+                        user
+                    )
+                    statistics["cpu_passmark_score"]["single_thread"][">4,500"].add(
+                        user
+                    )
                 elif (
                     "i913900" in system_information_trimmed
                     or "core13900" in system_information_trimmed
@@ -500,12 +504,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["24_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["40000-50000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "40,000-50,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i713700k" in system_information_trimmed
                     or "core13700k" in system_information_trimmed
@@ -514,12 +518,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["40000-50000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "40,000-50,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i713700" in system_information_trimmed
                     or "core13700" in system_information_trimmed
@@ -528,12 +532,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i513600k" in system_information_trimmed
                     or "core13600k" in system_information_trimmed
@@ -542,12 +546,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["14_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i513600" in system_information_trimmed
                     or "core13600" in system_information_trimmed
@@ -556,26 +560,26 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["14_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
-                    "i513500" in system_information_trimmed
-                    or "core13500" in system_information_trimmed
-                    or "intel13500" in system_information_trimmed
+                    "i513,500" in system_information_trimmed
+                    or "core13,500" in system_information_trimmed
+                    or "intel13,500" in system_information_trimmed
                 ):
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["14_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i513400" in system_information_trimmed
                     or "core13400" in system_information_trimmed
@@ -584,12 +588,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["10_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i313100" in system_information_trimmed
                     or "core13100" in system_information_trimmed
@@ -598,12 +602,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["raptor_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i912900k" in system_information_trimmed
                     or "core12900k" in system_information_trimmed
@@ -612,12 +616,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["40000-50000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "40,000-50,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i912900" in system_information_trimmed
                     or "core12900" in system_information_trimmed
@@ -626,12 +630,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i712700k" in system_information_trimmed
                     or "core12700k" in system_information_trimmed
@@ -640,12 +644,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "i712700" in system_information_trimmed
                     or "core12700" in system_information_trimmed
@@ -654,12 +658,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i512600k" in system_information_trimmed
                     or "core12600k" in system_information_trimmed
@@ -668,12 +672,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["10_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i512600" in system_information_trimmed
                     or "core12600" in system_information_trimmed
@@ -682,12 +686,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i512500" in system_information_trimmed
                     or "core12500" in system_information_trimmed
@@ -696,12 +700,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i512400" in system_information_trimmed
                     or "core12400" in system_information_trimmed
@@ -710,12 +714,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i312300" in system_information_trimmed
                     or "core12300" in system_information_trimmed
@@ -724,12 +728,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i312100" in system_information_trimmed
                     or "core12100" in system_information_trimmed
@@ -738,12 +742,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["alder_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i911900k" in system_information_trimmed
                     or "core11900k" in system_information_trimmed
@@ -752,12 +756,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "i911900" in system_information_trimmed
                     or "core11900" in system_information_trimmed
@@ -766,12 +770,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i711700k" in system_information_trimmed
                     or "core11700k" in system_information_trimmed
@@ -780,12 +784,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i711700" in system_information_trimmed
                     or "core11700" in system_information_trimmed
@@ -794,12 +798,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i511600k" in system_information_trimmed
                     or "core11600k" in system_information_trimmed
@@ -808,12 +812,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i511600" in system_information_trimmed
                     or "core11600" in system_information_trimmed
@@ -822,12 +826,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i511500" in system_information_trimmed
                     or "core11500" in system_information_trimmed
@@ -836,12 +840,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i511400" in system_information_trimmed
                     or "core11400" in system_information_trimmed
@@ -850,12 +854,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["rocket_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i910900k" in system_information_trimmed
                     or "core10900k" in system_information_trimmed
@@ -864,12 +868,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["10_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i910900" in system_information_trimmed
                     or "core10900" in system_information_trimmed
@@ -878,12 +882,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["10_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "i710700k" in system_information_trimmed
                     or "core10700k" in system_information_trimmed
@@ -892,12 +896,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i710700" in system_information_trimmed
                     or "core10700" in system_information_trimmed
@@ -906,12 +910,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i510600k" in system_information_trimmed
                     or "core10600k" in system_information_trimmed
@@ -920,12 +924,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i510600" in system_information_trimmed
                     or "core10600" in system_information_trimmed
@@ -934,12 +938,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i510500" in system_information_trimmed
                     or "core10500" in system_information_trimmed
@@ -948,12 +952,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i510400" in system_information_trimmed
                     or "core10400" in system_information_trimmed
@@ -962,12 +966,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i310300" in system_information_trimmed
                     or "core10300" in system_information_trimmed
@@ -976,12 +980,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i310100" in system_information_trimmed
                     or "core10100" in system_information_trimmed
@@ -990,12 +994,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["comet_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i99900k" in system_information_trimmed
                     or "core9900k" in system_information_trimmed
@@ -1004,12 +1008,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i99900" in system_information_trimmed
                     or "core9900" in system_information_trimmed
@@ -1018,12 +1022,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i79700k" in system_information_trimmed
                     or "core9700k" in system_information_trimmed
@@ -1032,12 +1036,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i79700" in system_information_trimmed
                     or "core9700" in system_information_trimmed
@@ -1046,12 +1050,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i59600k" in system_information_trimmed
                     or "core9600k" in system_information_trimmed
@@ -1060,12 +1064,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i59600" in system_information_trimmed
                     or "core9600" in system_information_trimmed
@@ -1074,12 +1078,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i59500" in system_information_trimmed
                     or "core9500" in system_information_trimmed
@@ -1088,12 +1092,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i59400" in system_information_trimmed
                     or "core9400" in system_information_trimmed
@@ -1102,12 +1106,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i39350k" in system_information_trimmed
                     or "core9350k" in system_information_trimmed
@@ -1116,12 +1120,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i39300" in system_information_trimmed
                     or "core9300" in system_information_trimmed
@@ -1130,12 +1134,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i39100" in system_information_trimmed
                     or "core9100" in system_information_trimmed
@@ -1144,12 +1148,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake_refresh"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i78700k" in system_information_trimmed
                     or "core8700k" in system_information_trimmed
@@ -1158,12 +1162,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i78700" in system_information_trimmed
                     or "core8700" in system_information_trimmed
@@ -1172,12 +1176,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i78086k" in system_information_trimmed
                     or "core8086k" in system_information_trimmed
@@ -1186,12 +1190,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i58600k" in system_information_trimmed
                     or "core8600k" in system_information_trimmed
@@ -1200,12 +1204,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i58500" in system_information_trimmed
                     or "core8500" in system_information_trimmed
@@ -1214,12 +1218,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i58400" in system_information_trimmed
                     or "core8400" in system_information_trimmed
@@ -1228,12 +1232,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i38350k" in system_information_trimmed
                     or "core8350k" in system_information_trimmed
@@ -1242,12 +1246,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i38100" in system_information_trimmed
                     or "core8100" in system_information_trimmed
@@ -1256,12 +1260,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["coffee_lake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i77700k" in system_information_trimmed
                     or "core7700k" in system_information_trimmed
@@ -1270,12 +1274,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i77700" in system_information_trimmed
                     or "core7700" in system_information_trimmed
@@ -1284,12 +1288,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i57600k" in system_information_trimmed
                     or "core7600k" in system_information_trimmed
@@ -1298,12 +1302,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i57600" in system_information_trimmed
                     or "core7600" in system_information_trimmed
@@ -1312,12 +1316,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i57500" in system_information_trimmed
                     or "core7500" in system_information_trimmed
@@ -1326,12 +1330,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i57400" in system_information_trimmed
                     or "core7400" in system_information_trimmed
@@ -1340,12 +1344,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i37350k" in system_information_trimmed
                     or "core7350k" in system_information_trimmed
@@ -1354,10 +1358,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i37300" in system_information_trimmed
                     or "core7300" in system_information_trimmed
@@ -1366,10 +1370,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i37100" in system_information_trimmed
                     or "core7100" in system_information_trimmed
@@ -1378,10 +1382,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i76700k" in system_information_trimmed
                     or "core6700k" in system_information_trimmed
@@ -1390,12 +1394,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "i76700" in system_information_trimmed
                     or "core6700" in system_information_trimmed
@@ -1404,12 +1408,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i56600k" in system_information_trimmed
                     or "core6600k" in system_information_trimmed
@@ -1418,12 +1422,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i56600" in system_information_trimmed
                     or "core6600" in system_information_trimmed
@@ -1432,12 +1436,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i56500" in system_information_trimmed
                     or "core6500" in system_information_trimmed
@@ -1446,12 +1450,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i56400" in system_information_trimmed
                     or "core6400" in system_information_trimmed
@@ -1460,12 +1464,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i36300" in system_information_trimmed
                     or "core6300" in system_information_trimmed
@@ -1474,10 +1478,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i36100" in system_information_trimmed
                     or "core6100" in system_information_trimmed
@@ -1486,10 +1490,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["skylake"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i74790k" in system_information_trimmed
                     or "core4790k" in system_information_trimmed
@@ -1498,12 +1502,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i74790" in system_information_trimmed
                     or "core4790" in system_information_trimmed
@@ -1512,12 +1516,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i74770k" in system_information_trimmed
                     or "core4770k" in system_information_trimmed
@@ -1526,12 +1530,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i74770" in system_information_trimmed
                     or "core4770" in system_information_trimmed
@@ -1540,12 +1544,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i54670k" in system_information_trimmed
                     or "core4670k" in system_information_trimmed
@@ -1554,12 +1558,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i54670" in system_information_trimmed
                     or "core4670" in system_information_trimmed
@@ -1568,12 +1572,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i54590" in system_information_trimmed
                     or "core4590" in system_information_trimmed
@@ -1582,12 +1586,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i54570" in system_information_trimmed
                     or "core4570" in system_information_trimmed
@@ -1596,12 +1600,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i54460" in system_information_trimmed
                     or "core4460" in system_information_trimmed
@@ -1610,10 +1614,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i54440" in system_information_trimmed
                     or "core4440" in system_information_trimmed
@@ -1622,10 +1626,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i54430" in system_information_trimmed
                     or "core4430" in system_information_trimmed
@@ -1634,10 +1638,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34370" in system_information_trimmed
                     or "core4370" in system_information_trimmed
@@ -1646,10 +1650,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i34360" in system_information_trimmed
                     or "core4360" in system_information_trimmed
@@ -1658,10 +1662,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i34350" in system_information_trimmed
                     or "core4350" in system_information_trimmed
@@ -1670,10 +1674,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34340" in system_information_trimmed
                     or "core4340" in system_information_trimmed
@@ -1682,10 +1686,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34330" in system_information_trimmed
                     or "core4330" in system_information_trimmed
@@ -1694,10 +1698,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34170" in system_information_trimmed
                     or "core4170" in system_information_trimmed
@@ -1706,10 +1710,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34160" in system_information_trimmed
                     or "core4160" in system_information_trimmed
@@ -1718,10 +1722,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34150" in system_information_trimmed
                     or "core4150" in system_information_trimmed
@@ -1730,10 +1734,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i34130" in system_information_trimmed
                     or "core4130" in system_information_trimmed
@@ -1742,10 +1746,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["haswell"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i73770k" in system_information_trimmed
                     or "core3770k" in system_information_trimmed
@@ -1754,12 +1758,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i73770" in system_information_trimmed
                     or "core3770" in system_information_trimmed
@@ -1768,12 +1772,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i53570k" in system_information_trimmed
                     or "core3570k" in system_information_trimmed
@@ -1782,10 +1786,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i53570" in system_information_trimmed
                     or "core3570" in system_information_trimmed
@@ -1794,10 +1798,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "i53550" in system_information_trimmed
                     or "core3550" in system_information_trimmed
@@ -1806,10 +1810,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i53470" in system_information_trimmed
                     or "core3470" in system_information_trimmed
@@ -1818,10 +1822,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i53450" in system_information_trimmed
                     or "core3450" in system_information_trimmed
@@ -1830,10 +1834,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i53340" in system_information_trimmed
                     or "core3340" in system_information_trimmed
@@ -1842,10 +1846,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i53330" in system_information_trimmed
                     or "core3330" in system_information_trimmed
@@ -1854,10 +1858,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i33250" in system_information_trimmed
                     or "core3250" in system_information_trimmed
@@ -1866,10 +1870,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i33240" in system_information_trimmed
                     or "core3240" in system_information_trimmed
@@ -1878,10 +1882,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i33220" in system_information_trimmed
                     or "core3220" in system_information_trimmed
@@ -1890,10 +1894,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i33210" in system_information_trimmed
                     or "core3210" in system_information_trimmed
@@ -1902,10 +1906,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["ivy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i72700k" in system_information_trimmed
                     or "core2700k" in system_information_trimmed
@@ -1914,12 +1918,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i72600k" in system_information_trimmed
                     or "core2600k" in system_information_trimmed
@@ -1928,12 +1932,12 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i72600" in system_information_trimmed
                     or "core2600" in system_information_trimmed
@@ -1942,36 +1946,36 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
-                    "i52500k" in system_information_trimmed
-                    or "core2500k" in system_information_trimmed
-                    or "intel2500k" in system_information_trimmed
+                    "i52,500k" in system_information_trimmed
+                    or "core2,500k" in system_information_trimmed
+                    or "intel2,500k" in system_information_trimmed
                 ):
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
-                    "i52500" in system_information_trimmed
-                    or "core2500" in system_information_trimmed
-                    or "intel2500" in system_information_trimmed
+                    "i52,500" in system_information_trimmed
+                    or "core2,500" in system_information_trimmed
+                    or "intel2,500" in system_information_trimmed
                 ):
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i52400" in system_information_trimmed
                     or "core2400" in system_information_trimmed
@@ -1980,10 +1984,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i52300" in system_information_trimmed
                     or "core2300" in system_information_trimmed
@@ -1992,8 +1996,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["<1500"].add(user)
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"]["<1,500"].add(
+                        user
+                    )
                 elif (
                     "i32130" in system_information_trimmed
                     or "core2130" in system_information_trimmed
@@ -2002,10 +2008,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i32120" in system_information_trimmed
                     or "core2120" in system_information_trimmed
@@ -2014,10 +2020,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "i32100" in system_information_trimmed
                     or "core2100" in system_information_trimmed
@@ -2026,8 +2032,10 @@ def main() -> None:
                     statistics["cpu"]["intel"]["sandy_bridge"].add(user)
                     statistics["cpu_core_count"]["2_cores"].add(user)
                     statistics["cpu_x86_features"]["avx"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["<5000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["<1500"].add(user)
+                    statistics["cpu_passmark_score"]["multi_thread"]["<5,000"].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"]["<1,500"].add(
+                        user
+                    )
                 elif (
                     "intelcore" in system_information_trimmed
                     or "inteli" in system_information_trimmed
@@ -2047,10 +2055,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"][">60000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
+                    statistics["cpu_passmark_score"]["multi_thread"][">60,000"].add(
                         user
                     )
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen97950x" in system_information_trimmed
                     or "ryzen7950x" in system_information_trimmed
@@ -2058,10 +2068,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"][">60000"].add(user)
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
+                    statistics["cpu_passmark_score"]["multi_thread"][">60,000"].add(
                         user
                     )
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen97900x3d" in system_information_trimmed
                     or "ryzen7900x3d" in system_information_trimmed
@@ -2069,12 +2081,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["50000-60000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "50,000-60,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen97900x" in system_information_trimmed
                     or "ryzen7900x" in system_information_trimmed
@@ -2082,12 +2094,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["50000-60000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "50,000-60,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen97900" in system_information_trimmed
                     or "ryzen7900" in system_information_trimmed
@@ -2095,12 +2107,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["40000-50000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "40,000-50,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen77800x3d" in system_information_trimmed
                     or "ryzen7800x3d" in system_information_trimmed
@@ -2108,12 +2120,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3500-4000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,500-4,000"
+                    ].add(user)
                 elif (
                     "ryzen77700x" in system_information_trimmed
                     or "ryzen7700x" in system_information_trimmed
@@ -2121,12 +2133,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen77700" in system_information_trimmed
                     or "ryzen7700" in system_information_trimmed
@@ -2134,12 +2146,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen57600x" in system_information_trimmed
                     or "ryzen7600x" in system_information_trimmed
@@ -2147,12 +2159,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen57600" in system_information_trimmed
                     or "ryzen7600" in system_information_trimmed
@@ -2160,12 +2172,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen4"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["4000-4500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "4,000-4,500"
+                    ].add(user)
                 elif (
                     "ryzen95950x" in system_information_trimmed
                     or "ryzen5950x" in system_information_trimmed
@@ -2173,12 +2185,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["40000-50000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "40,000-50,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen95900x" in system_information_trimmed
                     or "ryzen5900x" in system_information_trimmed
@@ -2186,12 +2198,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen95900" in system_information_trimmed
                     or "ryzen5900" in system_information_trimmed
@@ -2199,12 +2211,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen75800x3d" in system_information_trimmed
                     or "ryzen5800x3d" in system_information_trimmed
@@ -2212,12 +2224,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen75800x" in system_information_trimmed
                     or "ryzen5800x" in system_information_trimmed
@@ -2225,12 +2237,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen75800" in system_information_trimmed
                     or "ryzen5800" in system_information_trimmed
@@ -2238,12 +2250,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen75700x" in system_information_trimmed
                     or "ryzen5700x" in system_information_trimmed
@@ -2251,12 +2263,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen75700g" in system_information_trimmed
                     or "ryzen5700g" in system_information_trimmed
@@ -2264,12 +2276,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen75700" in system_information_trimmed
                     or "ryzen5700" in system_information_trimmed
@@ -2277,12 +2289,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen55600x" in system_information_trimmed
                     or "ryzen5600x" in system_information_trimmed
@@ -2290,12 +2302,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen55600g" in system_information_trimmed
                     or "ryzen5600g" in system_information_trimmed
@@ -2303,12 +2315,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen55600" in system_information_trimmed
                     or "ryzen5600" in system_information_trimmed
@@ -2316,12 +2328,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen3"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen55500" in system_information_trimmed
                     or "ryzen5500" in system_information_trimmed
@@ -2329,12 +2341,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["3000-3500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "3,000-3,500"
+                    ].add(user)
                 elif (
                     "ryzen93950x" in system_information_trimmed
                     or "ryzen3950x" in system_information_trimmed
@@ -2342,12 +2354,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen93900x" in system_information_trimmed
                     or "ryzen3900x" in system_information_trimmed
@@ -2355,12 +2367,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen93900" in system_information_trimmed
                     or "ryzen3900" in system_information_trimmed
@@ -2368,12 +2380,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["30000-40000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "30,000-40,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen73800x" in system_information_trimmed
                     or "ryzen3800x" in system_information_trimmed
@@ -2381,12 +2393,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen73700x" in system_information_trimmed
                     or "ryzen3700x" in system_information_trimmed
@@ -2394,12 +2406,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["20000-30000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "20,000-30,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen53600x" in system_information_trimmed
                     or "ryzen3600x" in system_information_trimmed
@@ -2407,12 +2419,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen53600" in system_information_trimmed
                     or "ryzen3600" in system_information_trimmed
@@ -2420,12 +2432,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen33300x" in system_information_trimmed
                     or "ryzen3300x" in system_information_trimmed
@@ -2433,12 +2445,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen2"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2500-3000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,500-3,000"
+                    ].add(user)
                 elif (
                     "ryzen72700x" in system_information_trimmed
                     or "ryzen2700x" in system_information_trimmed
@@ -2446,12 +2458,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen72700" in system_information_trimmed
                     or "ryzen2700" in system_information_trimmed
@@ -2459,12 +2471,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen52600x" in system_information_trimmed
                     or "ryzen2600x" in system_information_trimmed
@@ -2472,12 +2484,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen52600" in system_information_trimmed
                     or "ryzen2600" in system_information_trimmed
@@ -2485,25 +2497,25 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
-                    "ryzen52500x" in system_information_trimmed
-                    or "ryzen2500x" in system_information_trimmed
+                    "ryzen52,500x" in system_information_trimmed
+                    or "ryzen2,500x" in system_information_trimmed
                 ):
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen52400g" in system_information_trimmed
                     or "ryzen2400g" in system_information_trimmed
@@ -2511,12 +2523,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen32300x" in system_information_trimmed
                     or "ryzen2300x" in system_information_trimmed
@@ -2524,12 +2536,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen32200g" in system_information_trimmed
                     or "ryzen2200g" in system_information_trimmed
@@ -2537,12 +2549,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen71800x" in system_information_trimmed
                     or "ryzen1800x" in system_information_trimmed
@@ -2550,12 +2562,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen71700x" in system_information_trimmed
                     or "ryzen1700x" in system_information_trimmed
@@ -2563,12 +2575,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen71700" in system_information_trimmed
                     or "ryzen1700" in system_information_trimmed
@@ -2576,12 +2588,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen51600x" in system_information_trimmed
                     or "ryzen1600x" in system_information_trimmed
@@ -2589,12 +2601,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen51600" in system_information_trimmed
                     or "ryzen1600" in system_information_trimmed
@@ -2602,25 +2614,25 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["10000-20000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "10,000-20,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
-                    "ryzen51500x" in system_information_trimmed
-                    or "ryzen1500x" in system_information_trimmed
+                    "ryzen51,500x" in system_information_trimmed
+                    or "ryzen1,500x" in system_information_trimmed
                 ):
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen51400" in system_information_trimmed
                     or "ryzen1400" in system_information_trimmed
@@ -2628,12 +2640,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "ryzen31300x" in system_information_trimmed
                     or "ryzen1300x" in system_information_trimmed
@@ -2641,12 +2653,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["2000-2500"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "2,000-2,500"
+                    ].add(user)
                 elif (
                     "ryzen31200" in system_information_trimmed
                     or "ryzen1200" in system_information_trimmed
@@ -2654,12 +2666,12 @@ def main() -> None:
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
-                    statistics["cpu_passmark_score"]["multi_thread"]["5000-10000"].add(
-                        user
-                    )
-                    statistics["cpu_passmark_score"]["single_thread"]["1500-2000"].add(
-                        user
-                    )
+                    statistics["cpu_passmark_score"]["multi_thread"][
+                        "5,000-10,000"
+                    ].add(user)
+                    statistics["cpu_passmark_score"]["single_thread"][
+                        "1,500-2,000"
+                    ].add(user)
                 elif (
                     "ryzen" in system_information_trimmed
                     or "fx" in system_information_trimmed
@@ -2684,7 +2696,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"][">30000"].add(user)
+                    statistics["gpu_passmark_score"][">30,000"].add(user)
                 elif (
                     "4090laptop" in system_information_trimmed
                     or "4090mobile" in system_information_trimmed
@@ -2694,7 +2706,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "tx4080" in system_information_trimmed
                     or "geforce4080" in system_information_trimmed
@@ -2705,7 +2717,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"][">30000"].add(user)
+                    statistics["gpu_passmark_score"][">30,000"].add(user)
                 elif (
                     "4080laptop" in system_information_trimmed
                     or "4080mobile" in system_information_trimmed
@@ -2715,7 +2727,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "tx4070ti" in system_information_trimmed
                     or "geforce4070ti" in system_information_trimmed
@@ -2726,7 +2738,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"][">30000"].add(user)
+                    statistics["gpu_passmark_score"][">30,000"].add(user)
                 elif (
                     "tx4070" in system_information_trimmed
                     or "geforce4070" in system_information_trimmed
@@ -2737,7 +2749,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "4070laptop" in system_information_trimmed
                     or "4070mobile" in system_information_trimmed
@@ -2747,7 +2759,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx4060ti" in system_information_trimmed
                     or "geforce4060ti" in system_information_trimmed
@@ -2759,7 +2771,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "tx4060" in system_information_trimmed
                     or "geforce4060" in system_information_trimmed
@@ -2770,7 +2782,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "4060laptop" in system_information_trimmed
                     or "4060mobile" in system_information_trimmed
@@ -2780,7 +2792,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "4050laptop" in system_information_trimmed
                     or "4050mobile" in system_information_trimmed
@@ -2790,7 +2802,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx3090ti" in system_information_trimmed
                     or "geforce3090ti" in system_information_trimmed
@@ -2801,7 +2813,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "tx3090" in system_information_trimmed
                     or "geforce3090" in system_information_trimmed
@@ -2812,7 +2824,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "tx3080ti" in system_information_trimmed
                     or "geforce3080ti" in system_information_trimmed
@@ -2823,7 +2835,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "3080tilaptop" in system_information_trimmed
                     or "3080timobile" in system_information_trimmed
@@ -2833,7 +2845,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "tx3080" in system_information_trimmed
                     or "geforce3080" in system_information_trimmed
@@ -2845,7 +2857,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "3080laptop" in system_information_trimmed
                     or "3080mobile" in system_information_trimmed
@@ -2855,7 +2867,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx3070ti" in system_information_trimmed
                     or "geforce3070ti" in system_information_trimmed
@@ -2866,7 +2878,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "3070tilaptop" in system_information_trimmed
                     or "3070timobile" in system_information_trimmed
@@ -2876,7 +2888,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx3070" in system_information_trimmed
                     or "geforce3070" in system_information_trimmed
@@ -2887,7 +2899,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "3070laptop" in system_information_trimmed
                     or "3070mobile" in system_information_trimmed
@@ -2897,7 +2909,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx3060ti" in system_information_trimmed
                     or "geforce3060ti" in system_information_trimmed
@@ -2908,7 +2920,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "tx3060" in system_information_trimmed
                     or "geforce3060" in system_information_trimmed
@@ -2920,7 +2932,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "3060laptop" in system_information_trimmed
                     or "3060mobile" in system_information_trimmed
@@ -2930,7 +2942,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "3050tilaptop" in system_information_trimmed
                     or "3050timobile" in system_information_trimmed
@@ -2940,7 +2952,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "tx3050" in system_information_trimmed
                     or "geforce3050" in system_information_trimmed
@@ -2951,7 +2963,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "3050laptop" in system_information_trimmed
                     or "3050mobile" in system_information_trimmed
@@ -2962,7 +2974,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "tx2080ti" in system_information_trimmed
                     or "geforce2080ti" in system_information_trimmed
@@ -2973,7 +2985,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "tx2080super" in system_information_trimmed
                     or "geforce2080super" in system_information_trimmed
@@ -2984,7 +2996,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx2080" in system_information_trimmed
                     or "geforce2080" in system_information_trimmed
@@ -2995,7 +3007,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx2070super" in system_information_trimmed
                     or "geforce2070super" in system_information_trimmed
@@ -3006,7 +3018,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx2070" in system_information_trimmed
                     or "geforce2070" in system_information_trimmed
@@ -3017,7 +3029,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx2060super" in system_information_trimmed
                     or "geforce2060super" in system_information_trimmed
@@ -3028,7 +3040,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "tx2060" in system_information_trimmed
                     or "geforce2060" in system_information_trimmed
@@ -3041,8 +3053,8 @@ def main() -> None:
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
                     # 6 GB variant is slower than the 12 GB one;
-                    # the 12 GB one is in the 15000-20000 performance bracket.
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    # the 12 GB one is in the 15,000-20,000 performance bracket.
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1660ti" in system_information_trimmed
                     or "geforce1660ti" in system_information_trimmed
@@ -3053,7 +3065,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1660super" in system_information_trimmed
                     or "geforce1660super" in system_information_trimmed
@@ -3064,7 +3076,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1660" in system_information_trimmed
                     or "geforce1660" in system_information_trimmed
@@ -3075,7 +3087,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1650super" in system_information_trimmed
                     or "geforce1650super" in system_information_trimmed
@@ -3086,7 +3098,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1650" in system_information_trimmed
                     or "geforce1650" in system_information_trimmed
@@ -3097,7 +3109,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx1630" in system_information_trimmed
                     or "geforce1630" in system_information_trimmed
@@ -3108,7 +3120,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx1080ti" in system_information_trimmed
                     or "geforce1080ti" in system_information_trimmed
@@ -3119,7 +3131,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "gtx1080" in system_information_trimmed
                     or "geforce1080" in system_information_trimmed
@@ -3130,7 +3142,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "gtx1070ti" in system_information_trimmed
                     or "geforce1070ti" in system_information_trimmed
@@ -3141,7 +3153,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1070" in system_information_trimmed
                     or "geforce1070" in system_information_trimmed
@@ -3152,7 +3164,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1060" in system_information_trimmed
                     or "geforce1060" in system_information_trimmed
@@ -3166,7 +3178,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx1050ti" in system_information_trimmed
                     or "geforce1050ti" in system_information_trimmed
@@ -3177,7 +3189,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx1050" in system_information_trimmed
                     or "geforce1050" in system_information_trimmed
@@ -3188,7 +3200,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx980ti" in system_information_trimmed
                     or "geforce980ti" in system_information_trimmed
@@ -3199,7 +3211,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx980" in system_information_trimmed
                     or "geforce980" in system_information_trimmed
@@ -3210,7 +3222,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "gtx970" in system_information_trimmed
                     or "geforce970" in system_information_trimmed
@@ -3223,7 +3235,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx960" in system_information_trimmed
                     or "geforce960" in system_information_trimmed
@@ -3234,7 +3246,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx950" in system_information_trimmed
                     or "geforce950" in system_information_trimmed
@@ -3245,7 +3257,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx750ti" in system_information_trimmed
                     or "geforce750ti" in system_information_trimmed
@@ -3256,7 +3268,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx750" in system_information_trimmed
                     or "geforce750" in system_information_trimmed
@@ -3267,7 +3279,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx690" in system_information_trimmed
                     or "geforce690" in system_information_trimmed
@@ -3280,7 +3292,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx680" in system_information_trimmed
                     or "geforce680" in system_information_trimmed
@@ -3291,7 +3303,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx670" in system_information_trimmed
                     or "geforce670" in system_information_trimmed
@@ -3302,7 +3314,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "gtx660ti" in system_information_trimmed
                     or "geforce660ti" in system_information_trimmed
@@ -3313,7 +3325,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx660" in system_information_trimmed
                     or "geforce660" in system_information_trimmed
@@ -3324,7 +3336,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx650ti" in system_information_trimmed
                     or "geforce650ti" in system_information_trimmed
@@ -3335,7 +3347,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx650" in system_information_trimmed
                     or "geforce650" in system_information_trimmed
@@ -3346,7 +3358,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif (
                     "gtx590" in system_information_trimmed
                     or "geforce590" in system_information_trimmed
@@ -3360,7 +3372,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx580" in system_information_trimmed
                     or "geforce580" in system_information_trimmed
@@ -3372,7 +3384,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx570" in system_information_trimmed
                     or "geforce570" in system_information_trimmed
@@ -3384,7 +3396,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx560ti" in system_information_trimmed
                     or "geforce560ti" in system_information_trimmed
@@ -3395,7 +3407,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx560" in system_information_trimmed
                     or "geforce560" in system_information_trimmed
@@ -3406,7 +3418,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "gtx550ti" in system_information_trimmed
                     or "geforce550ti" in system_information_trimmed
@@ -3417,7 +3429,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif (
                     "gt710" in system_information_trimmed
                     or "geforce710" in system_information_trimmed
@@ -3429,7 +3441,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif (
                     "nvidia" in system_information_trimmed
                     or "quadro" in system_information_trimmed
@@ -3447,7 +3459,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"][">30000"].add(user)
+                    statistics["gpu_passmark_score"][">30,000"].add(user)
                 elif (
                     "rx7900xt" in system_information_trimmed
                     or "radeon7900xt" in system_information_trimmed
@@ -3458,7 +3470,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "rx7600" in system_information_trimmed
                     or "radeon7600" in system_information_trimmed
@@ -3469,7 +3481,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx6950xt" in system_information_trimmed
                     or "radeon6950xt" in system_information_trimmed
@@ -3480,7 +3492,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "rx6900xt" in system_information_trimmed
                     or "radeon6900xt" in system_information_trimmed
@@ -3491,7 +3503,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "rx6800xt" in system_information_trimmed
                     or "radeon6800xt" in system_information_trimmed
@@ -3502,7 +3514,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["25000-30000"].add(user)
+                    statistics["gpu_passmark_score"]["25,000-30,000"].add(user)
                 elif (
                     "rx6800" in system_information_trimmed
                     or "radeon6800" in system_information_trimmed
@@ -3513,7 +3525,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "rx6750xt" in system_information_trimmed
                     or "radeon6750xt" in system_information_trimmed
@@ -3524,7 +3536,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["20000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["20,000-25,000"].add(user)
                 elif (
                     "rx6700xt" in system_information_trimmed
                     or "radeon6700xt" in system_information_trimmed
@@ -3535,7 +3547,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx6700" in system_information_trimmed
                     or "radeon6700" in system_information_trimmed
@@ -3546,7 +3558,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx6650xt" in system_information_trimmed
                     or "radeon6650xt" in system_information_trimmed
@@ -3557,7 +3569,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx6600xt" in system_information_trimmed
                     or "radeon6600xt" in system_information_trimmed
@@ -3568,7 +3580,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx6600" in system_information_trimmed
                     or "radeon6600" in system_information_trimmed
@@ -3579,7 +3591,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx6500xt" in system_information_trimmed
                     or "radeon6500xt" in system_information_trimmed
@@ -3590,7 +3602,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx6400" in system_information_trimmed
                     or "radeon6400" in system_information_trimmed
@@ -3601,7 +3613,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx5700xt" in system_information_trimmed
                     or "radeon5700xt" in system_information_trimmed
@@ -3612,7 +3624,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif (
                     "rx5700" in system_information_trimmed
                     or "radeon5700" in system_information_trimmed
@@ -3623,7 +3635,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "rx5600xt" in system_information_trimmed
                     or "radeon5600xt" in system_information_trimmed
@@ -3634,7 +3646,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "rx5600" in system_information_trimmed
                     or "radeon5600" in system_information_trimmed
@@ -3645,7 +3657,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "rx5500xt" in system_information_trimmed
                     or "radeon5500xt" in system_information_trimmed
@@ -3656,7 +3668,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx5500" in system_information_trimmed
                     or "radeon5500" in system_information_trimmed
@@ -3667,28 +3679,28 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif "radeonvii" in system_information_trimmed:
                     statistics["gpu"]["amd"]["dedicated_gcn5.0"].add(user)
                     statistics["gpu_vram"]["4_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["15000-20000"].add(user)
+                    statistics["gpu_passmark_score"]["15,000-20,000"].add(user)
                 elif "vega64" in system_information_trimmed:
                     statistics["gpu"]["amd"]["dedicated_gcn5.0"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-15000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif "vega56" in system_information_trimmed:
                     statistics["gpu"]["amd"]["dedicated_gcn5.0"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10000-25000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-25,000"].add(user)
                 elif (
                     "rx590" in system_information_trimmed
                     or "radeon590" in system_information_trimmed
@@ -3699,7 +3711,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx580" in system_information_trimmed
                     or "radeon580" in system_information_trimmed
@@ -3710,7 +3722,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx570" in system_information_trimmed
                     or "radeon570" in system_information_trimmed
@@ -3721,7 +3733,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx560" in system_information_trimmed
                     or "radeon560" in system_information_trimmed
@@ -3732,7 +3744,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "rx550" in system_information_trimmed
                     or "radeon550" in system_information_trimmed
@@ -3743,7 +3755,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "rx480" in system_information_trimmed
                     or "radeon480" in system_information_trimmed
@@ -3754,7 +3766,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx470" in system_information_trimmed
                     or "radeon470" in system_information_trimmed
@@ -3765,7 +3777,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif (
                     "rx460" in system_information_trimmed
                     or "radeon460" in system_information_trimmed
@@ -3776,7 +3788,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif (
                     "radeon" in system_information_trimmed
                     or "firepro" in system_information_trimmed
@@ -3789,151 +3801,151 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif "a770" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["16_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif "a750" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif "a580" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["8_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["5000-10000"].add(user)
+                    statistics["gpu_passmark_score"]["5,000-10,000"].add(user)
                 elif "a380" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["6_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif "a350" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["4_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif "a310" in system_information_trimmed:
                     statistics["gpu"]["intel"]["dedicated_arc_alchemist"].add(user)
                     statistics["gpu_vram"]["4_gb"].add(user)
                     statistics["gpu_raytracing"]["dedicated"]["yes"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["yes"].add(user)
-                    statistics["gpu_passmark_score"]["2500-5000"].add(user)
+                    statistics["gpu_passmark_score"]["2,500-5,000"].add(user)
                 elif "uhd770" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd750" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd730" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd710" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen12"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["yes"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "irisplus655" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "irisplus645" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd630" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd620" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd617" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd615" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "uhd610" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "irisplus650" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "irisplus640" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd630" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd620" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd615" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd610" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif (
                     "iris580" in system_information_trimmed
                 ):  # Originally "irispro580", but we stripped "pro" to make parsing Ryzen PRO easier.
@@ -3941,43 +3953,43 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "iris550" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "iris540" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd530" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd520" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd515" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd510" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen9"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif (
                     "iris6200" in system_information_trimmed
                 ):  # Originally "irispro6200", but we stripped "pro" to make parsing Ryzen PRO easier.
@@ -3985,37 +3997,37 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "iris6100" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd6000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd5600" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd5500" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd5300" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen8"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif (
                     "iris5200" in system_information_trimmed
                 ):  # Originally "irispro5200", but we stripped "pro" to make parsing Ryzen PRO easier.
@@ -4023,55 +4035,55 @@ def main() -> None:
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "iris5100" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
-                elif "hd5000" in system_information_trimmed:
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
+                elif "hd5,000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd4600" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd4400" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd4200" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7.5"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
-                elif "hd4000" in system_information_trimmed:
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
+                elif "hd4,000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
-                elif "hd2500" in system_information_trimmed:
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
+                elif "hd2,500" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen7"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd3000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen6"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
                     statistics["gpu_vrs"]["integrated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["integrated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
                 elif "hd2000" in system_information_trimmed:
                     statistics["gpu"]["intel"]["integrated_gen6"].add(user)
                     statistics["gpu_raytracing"]["integrated"]["no"].add(user)
@@ -4083,8 +4095,8 @@ def main() -> None:
                 ):
                     statistics["gpu"]["intel"]["unknown"].add(user)
                     # Assume this is a slow GPU, as even high-end Iris Xe barely scratches
-                    # the 2500 points mark as of June 2023.
-                    statistics["gpu_passmark_score"]["<2500"].add(user)
+                    # the 2,500 points mark as of June 2023.
+                    statistics["gpu_passmark_score"]["<2,500"].add(user)
 
     statistics["num_reports"] = len(user_system_infos)
     statistics["first_report_date"] = first_report_date
