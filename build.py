@@ -101,7 +101,6 @@ def main() -> None:
                 "macos_10.15": set(),
                 "macos_10.14": set(),
                 "macos_10.13": set(),
-                "macos_10.12": set(),
                 "unknown": set(),
             },
             "android": {
@@ -115,7 +114,6 @@ def main() -> None:
                 "android_8": set(),
                 "android_7": set(),
                 "android_6": set(),
-                "android_5": set(),
                 "unknown": set(),
             },
             "ios": {
@@ -127,7 +125,6 @@ def main() -> None:
                 "ios_13": set(),
                 "ios_12": set(),
                 "ios_11": set(),
-                "ios_10": set(),
                 "unknown": set(),
             },
             "web": {
@@ -430,11 +427,6 @@ def main() -> None:
                     or "macoshighsierra" in system_information_trimmed
                 ):
                     statistics["os"]["macos"]["macos_10.13"].add(user)
-                elif (
-                    "macos10.12" in system_information_trimmed
-                    or "macossierra" in system_information_trimmed
-                ):
-                    statistics["os"]["macos"]["macos_10.12"].add(user)
                 elif "macos" in system_information_trimmed:
                     statistics["os"]["macos"]["unknown"].add(user)
 
@@ -458,8 +450,6 @@ def main() -> None:
                     statistics["os"]["android"]["android_7"].add(user)
                 elif "android6" in system_information_trimmed:
                     statistics["os"]["android"]["android_6"].add(user)
-                elif "android5" in system_information_trimmed:
-                    statistics["os"]["android"]["android_5"].add(user)
                 elif "android" in system_information_trimmed:
                     statistics["os"]["android"]["unknown"].add(user)
 
@@ -479,8 +469,6 @@ def main() -> None:
                     statistics["os"]["ios"]["ios_12"].add(user)
                 elif "ios11" in system_information_trimmed:
                     statistics["os"]["ios"]["ios_11"].add(user)
-                elif "ios10" in system_information_trimmed:
-                    statistics["os"]["ios"]["ios_10"].add(user)
                 elif "ios" in system_information_trimmed:
                     statistics["os"]["ios"]["unknown"].add(user)
 
