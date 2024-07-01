@@ -486,7 +486,6 @@ def main() -> None:
                     statistics["os"]["web"]["unknown"].add(user)
 
                 # TODO: Add laptop and Celeron/Pentium Intel CPUs.
-                # TODO: Add Passmark scores for CPUs and GPUs.
                 # The Intel CPU detection considers -KS and -KF CPUs identical to -K,
                 # and -F identical to not having any suffix. (The -F suffix denotes a non-functional IGP.)
                 if (
