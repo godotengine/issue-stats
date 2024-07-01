@@ -138,11 +138,11 @@ def main() -> None:
         },
         "cpu": {
             "amd": {
-                "zen4": set(),
-                "zen3": set(),
-                "zen2": set(),
+                "zen_4": set(),
+                "zen_3": set(),
+                "zen_2": set(),
                 "zen+": set(),
-                "zen1": set(),
+                "zen_1": set(),
                 "piledriver": set(),
                 "bulldozer": set(),
                 "unknown": set(),
@@ -2052,7 +2052,7 @@ def main() -> None:
                     "ryzen97950x3d" in system_information_trimmed
                     or "ryzen7950x3d" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][">60,000"].add(
@@ -2065,7 +2065,7 @@ def main() -> None:
                     "ryzen97950x" in system_information_trimmed
                     or "ryzen7950x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][">60,000"].add(
@@ -2078,7 +2078,7 @@ def main() -> None:
                     "ryzen97900x3d" in system_information_trimmed
                     or "ryzen7900x3d" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2091,7 +2091,7 @@ def main() -> None:
                     "ryzen97900x" in system_information_trimmed
                     or "ryzen7900x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2104,7 +2104,7 @@ def main() -> None:
                     "ryzen97900" in system_information_trimmed
                     or "ryzen7900" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2117,7 +2117,7 @@ def main() -> None:
                     "ryzen77800x3d" in system_information_trimmed
                     or "ryzen7800x3d" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2130,7 +2130,7 @@ def main() -> None:
                     "ryzen77700x" in system_information_trimmed
                     or "ryzen7700x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2143,7 +2143,7 @@ def main() -> None:
                     "ryzen77700" in system_information_trimmed
                     or "ryzen7700" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2156,7 +2156,7 @@ def main() -> None:
                     "ryzen57600x" in system_information_trimmed
                     or "ryzen7600x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2169,7 +2169,7 @@ def main() -> None:
                     "ryzen57600" in system_information_trimmed
                     or "ryzen7600" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen4"].add(user)
+                    statistics["cpu"]["amd"]["zen_4"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx512"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2182,7 +2182,7 @@ def main() -> None:
                     "ryzen95950x" in system_information_trimmed
                     or "ryzen5950x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2195,7 +2195,7 @@ def main() -> None:
                     "ryzen95900x" in system_information_trimmed
                     or "ryzen5900x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2208,7 +2208,7 @@ def main() -> None:
                     "ryzen95900" in system_information_trimmed
                     or "ryzen5900" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2221,7 +2221,7 @@ def main() -> None:
                     "ryzen75800x3d" in system_information_trimmed
                     or "ryzen5800x3d" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2234,7 +2234,7 @@ def main() -> None:
                     "ryzen75800x" in system_information_trimmed
                     or "ryzen5800x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2247,7 +2247,7 @@ def main() -> None:
                     "ryzen75800" in system_information_trimmed
                     or "ryzen5800" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2260,7 +2260,7 @@ def main() -> None:
                     "ryzen75700x" in system_information_trimmed
                     or "ryzen5700x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2273,7 +2273,7 @@ def main() -> None:
                     "ryzen75700g" in system_information_trimmed
                     or "ryzen5700g" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2286,7 +2286,7 @@ def main() -> None:
                     "ryzen75700" in system_information_trimmed
                     or "ryzen5700" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2299,7 +2299,7 @@ def main() -> None:
                     "ryzen55600x" in system_information_trimmed
                     or "ryzen5600x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2312,7 +2312,7 @@ def main() -> None:
                     "ryzen55600g" in system_information_trimmed
                     or "ryzen5600g" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2325,7 +2325,7 @@ def main() -> None:
                     "ryzen55600" in system_information_trimmed
                     or "ryzen5600" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen3"].add(user)
+                    statistics["cpu"]["amd"]["zen_3"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2338,7 +2338,7 @@ def main() -> None:
                     "ryzen55500" in system_information_trimmed
                     or "ryzen5500" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2351,7 +2351,7 @@ def main() -> None:
                     "ryzen93950x" in system_information_trimmed
                     or "ryzen3950x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["16_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2364,7 +2364,7 @@ def main() -> None:
                     "ryzen93900x" in system_information_trimmed
                     or "ryzen3900x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2377,7 +2377,7 @@ def main() -> None:
                     "ryzen93900" in system_information_trimmed
                     or "ryzen3900" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["12_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2390,7 +2390,7 @@ def main() -> None:
                     "ryzen73800x" in system_information_trimmed
                     or "ryzen3800x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2403,7 +2403,7 @@ def main() -> None:
                     "ryzen73700x" in system_information_trimmed
                     or "ryzen3700x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["8_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2416,7 +2416,7 @@ def main() -> None:
                     "ryzen53600x" in system_information_trimmed
                     or "ryzen3600x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2429,7 +2429,7 @@ def main() -> None:
                     "ryzen53600" in system_information_trimmed
                     or "ryzen3600" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["6_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
@@ -2442,7 +2442,7 @@ def main() -> None:
                     "ryzen33300x" in system_information_trimmed
                     or "ryzen3300x" in system_information_trimmed
                 ):
-                    statistics["cpu"]["amd"]["zen2"].add(user)
+                    statistics["cpu"]["amd"]["zen_2"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
                     statistics["cpu_x86_features"]["avx2"].add(user)
                     statistics["cpu_passmark_score"]["multi_thread"][
