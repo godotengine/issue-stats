@@ -2504,8 +2504,8 @@ def main() -> None:
                         "2,000-2,500"
                     ].add(user)
                 elif (
-                    "ryzen52,500x" in system_information_trimmed
-                    or "ryzen2,500x" in system_information_trimmed
+                    "ryzen52500x" in system_information_trimmed
+                    or "ryzen2500x" in system_information_trimmed
                 ):
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
@@ -2621,8 +2621,8 @@ def main() -> None:
                         "2,000-2,500"
                     ].add(user)
                 elif (
-                    "ryzen51,500x" in system_information_trimmed
-                    or "ryzen1,500x" in system_information_trimmed
+                    "ryzen51500x" in system_information_trimmed
+                    or "ryzen1500x" in system_information_trimmed
                 ):
                     statistics["cpu"]["amd"]["zen+"].add(user)
                     statistics["cpu_core_count"]["4_cores"].add(user)
