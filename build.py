@@ -93,6 +93,7 @@ def main() -> None:
                 "unknown": set(),
             },
             "macos": {
+                "macos_15": set(),
                 "macos_14": set(),
                 "macos_13": set(),
                 "macos_12": set(),
@@ -104,6 +105,7 @@ def main() -> None:
                 "unknown": set(),
             },
             "android": {
+                "android_15": set(),
                 "android_14": set(),
                 "android_13": set(),
                 "android_12": set(),
@@ -117,6 +119,7 @@ def main() -> None:
                 "unknown": set(),
             },
             "ios": {
+                "ios_18": set(),
                 "ios_17": set(),
                 "ios_16": set(),
                 "ios_15": set(),
@@ -388,6 +391,16 @@ def main() -> None:
                     statistics["os"]["linux"]["unknown"].add(user)
 
                 if (
+                    "macos15" in system_information_trimmed
+                    or "macossequoia" in system_information_trimmed
+                ):
+                    statistics["os"]["macos"]["macos_15"].add(user)
+                elif (
+                    "macos14" in system_information_trimmed
+                    or "macossonoma" in system_information_trimmed
+                ):
+                    statistics["os"]["macos"]["macos_14"].add(user)
+                elif (
                     "macos13" in system_information_trimmed
                     or "macosventura" in system_information_trimmed
                 ):
@@ -425,7 +438,11 @@ def main() -> None:
                 elif "macos" in system_information_trimmed:
                     statistics["os"]["macos"]["unknown"].add(user)
 
-                if "android13" in system_information_trimmed:
+                if "android15" in system_information_trimmed:
+                    statistics["os"]["android"]["android_15"].add(user)
+                elif "android14" in system_information_trimmed:
+                    statistics["os"]["android"]["android_14"].add(user)
+                elif "android13" in system_information_trimmed:
                     statistics["os"]["android"]["android_13"].add(user)
                 elif "android12" in system_information_trimmed:
                     statistics["os"]["android"]["android_12"].add(user)
@@ -446,7 +463,9 @@ def main() -> None:
                 elif "android" in system_information_trimmed:
                     statistics["os"]["android"]["unknown"].add(user)
 
-                if "ios17" in system_information_trimmed:
+                if "ios18" in system_information_trimmed:
+                    statistics["os"]["ios"]["ios_18"].add(user)
+                elif "ios17" in system_information_trimmed:
                     statistics["os"]["ios"]["ios_17"].add(user)
                 elif "ios16" in system_information_trimmed:
                     statistics["os"]["ios"]["ios_16"].add(user)
