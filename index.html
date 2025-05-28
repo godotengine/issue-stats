@@ -57,6 +57,7 @@
             arch: "Arch or Arch-based",
 
             // AMD GPU generations.
+            dedicated_rdna4: "Dedi. RDNA4",
             dedicated_rdna3: "Dedi. RDNA3",
             dedicated_rdna2: "Dedi. RDNA2",
             dedicated_rdna1: "Dedi. RDNA1",
@@ -139,6 +140,7 @@
             opera: "#dc2626",
 
             // AMD CPU generation.
+            zen_5: "#fca5a5",
             zen_4: "#f87171",
             zen_3: "#ef4444",
             zen_2: "#dc2626",
@@ -148,23 +150,24 @@
             bulldozer: "#450a0a",
 
             // Intel CPU generation.
-            raptor_lake: "#ffffff",
-            alder_lake: "#eff6ff",
-            rocket_lake: "#dbeafe",
-            comet_lake: "#bfdbfe",
-            coffee_lake_refresh: "#93c5fd",
-            coffee_lake: "#60a5fa",
-            kaby_lake: "#3b82f6",
-            skylake: "#2563eb",
-            broadwell: "#1d4ed8",
-            haswell: "#1e40af",
-            ivy_bridge: "#1e3a8a",
+            arrow_lake: "#ffffff",
+            raptor_lake_refresh: "#eff6ff",
+            raptor_lake: "#eff6ff",
+            alder_lake: "#dbeafe",
+            rocket_lake: "#bfdbfe",
+            comet_lake: "#93c5fd",
+            coffee_lake_refresh: "#60a5fa",
+            coffee_lake: "#3b82f6",
+            kaby_lake: "#2563eb",
+            skylake: "#1d4ed8",
+            broadwell: "#1e40af",
+            haswell: "#1e3a8a",
+            ivy_bridge: "#172554",
             sandy_bridge: "#172554",
 
             // CPU physical core count.
-            ">32_cores": "#ecfeff",
-            "32_cores": "#cffafe",
-            "24_cores": "#a5f3fc",
+            "24_cores": "#cffafe",
+            "20_cores": "#a5f3fc",
             "16_cores": "#67e8f9",
             "14_cores": "#22d3ee",
             "12_cores": "#06b6d4",
@@ -181,7 +184,8 @@
             "sse4.2": "#831843",
 
             // CPU multi-thread performance score.
-            ">60,000": "#fde047",
+            ">70,000": "#fee879",
+            "60,000-70,000": "#fde047",
             "50,000-60,000": "#facc15",
             "40,000-50,000": "#eab308",
             "30,000-40,000": "#ca8a04",
@@ -201,6 +205,7 @@
             "<1,500": "#1e1b4b",
 
             // AMD GPU generation.
+            dedicated_rdna4: "#fee2e2",
             dedicated_rdna3: "#fecaca",
             dedicated_rdna2: "#fca5a5",
             dedicated_rdna1: "#f87171",
@@ -215,6 +220,7 @@
             "integrated_gcn5.0": "#451a03",
 
             // Intel GPU generation.
+            dedicated_arc_battlemage: "#0d5572",
             dedicated_arc_alchemist: "#083344",
             integrated_gen12: "#60a5fa",
             "integrated_gen9.5": "#3b82f6",
@@ -225,6 +231,7 @@
             integrated_gen6: "#172554",
 
             // NVIDIA GPU generation.
+            dedicated_blackwell: "#b8ec62",
             dedicated_ada_lovelace: "#a3e635",
             dedicated_ampere: "#84cc16",
             dedicated_turing: "#65a30d",
@@ -238,7 +245,7 @@
             no: "#dc2626",
 
             // GPU video memory.
-            ">24_gb": "#ffffff",
+            "32_gb": "#ffffff",
             "24_gb": "#ffffff",
             "20_gb": "#faf5ff",
             "16_gb": "#f3e8ff",
@@ -470,9 +477,9 @@
                 <li><strong>5,000 points:</strong> AMD FX-8140, Intel Core i5-3570K</li>
                 <li><strong>10,000 points:</strong> AMD Ryzen 5 7520U, Intel Core i5-8600</li>
                 <li><strong>20,000 points:</strong> AMD Ryzen 5 5600G, Intel Core i9-10900</li>
-                <li><strong>30,000 points:</strong> AMD Ryzen Threadripper 2970WX, Intel Core i9-9960X</li>
-                <li><strong>40,000 points:</strong> AMD Ryzen 9 5900X, Apple M1 Ultra 20 Core, Intel Core i7-13700</li>
-                <li><strong>50,000 points:</strong> AMD Ryzen 9 7900X</li>
+                <li><strong>30,000 points:</strong> AMD Ryzen 5 9600X, Intel Core i9-9960X</li>
+                <li><strong>40,000 points:</strong> AMD Ryzen 9 5900X, Intel Core i7-13700, Apple M1 Ultra 20 Core</li>
+                <li><strong>50,000 points:</strong> AMD Ryzen 9 7900X, Intel Core i7-13900, Apple M2 Ultra 24 Core</li>
                 <li><strong>60,000 points:</strong> AMD Ryzen 9 7950X, Intel Core i9-13900K</li>
             </ul>
         </div>
@@ -490,8 +497,8 @@
                 <li><strong>2,500 points:</strong> AMD Ryzen 5 3500, Intel Core i3-8350K</li>
                 <li><strong>3,000 points:</strong> AMD Ryzen 3 5300G, Intel Core i9-9900K</li>
                 <li><strong>3,500 points:</strong> AMD Ryzen 9 5900X, Intel Core i5-12400</li>
-                <li><strong>4,000 points:</strong> AMD Ryzen 5 7600, Apple M2 8 Core, Intel Core i5-13600</li>
-                <li><strong>4,500 points:</strong> Intel Core i9-13900K</li>
+                <li><strong>4,000 points:</strong> AMD Ryzen 7 7700, Intel Core i5-13600, Apple M2 8 Core</li>
+                <li><strong>4,500 points:</strong> AMD Ryzen 5 9600X, Intel Core i9-13900K, Apple M4 9 Core</li>
             </ul>
         </div>
     </details>
@@ -545,7 +552,7 @@
         <h3>Integrated GPUs</h3>
         <div id="chart-gpu-vrs-integrated"></div>
         <div class="chart-caption">
-            Variable rate shading can be optionally used in Godot 4.
+            <a href="https://docs.godotengine.org/en/stable/tutorials/3d/variable_rate_shading.html">Variable rate shading</a> can be optionally used in Godot 4.
         </div>
     </details>
 
