@@ -4197,7 +4197,7 @@ def main() -> None:
                     statistics["gpu_raytracing"]["dedicated"]["no"].add(user)
                     statistics["gpu_vrs"]["dedicated"]["no"].add(user)
                     statistics["gpu_mesh_shaders"]["dedicated"]["no"].add(user)
-                    statistics["gpu_passmark_score"]["10,000-25,000"].add(user)
+                    statistics["gpu_passmark_score"]["10,000-15,000"].add(user)
                 elif (
                     "rx590" in system_information_trimmed
                     or "radeon590" in system_information_trimmed
