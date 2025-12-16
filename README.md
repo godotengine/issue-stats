@@ -44,7 +44,7 @@ but they allow seeing what kind of hardware and software is popular among issue 
 
 - The frontend is a single [`index.html`](/index.html) page, plus the
   third-party dependencies mentioned below. No frontend building is required.
-- [Frappe Charts](https://frappe.io/charts) is used to display charts.
+- [Chart.js](https://www.chartjs.org/) is used to display charts.
 - [Ky](https://github.com/sindresorhus/ky) is used to make an HTTP request to the JSON file.
 - [Water.css](https://watercss.kognise.dev/) is used for styling the page.
 
