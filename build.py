@@ -10,6 +10,10 @@ from typing_extensions import Final
 
 
 def main() -> None:
+    # Change to the directory where the script is located,
+    # so that the script can be run from any location.
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+
     load_dotenv()
 
     transport: Final = AIOHTTPTransport(
