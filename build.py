@@ -435,11 +435,6 @@ def main() -> None:
                     or "macosmojave" in system_information_trimmed
                 ):
                     statistics["os"]["macos"]["macos_10.14"].add(user)
-                elif (
-                    "macos10.13" in system_information_trimmed
-                    or "macoshighsierra" in system_information_trimmed
-                ):
-                    statistics["os"]["macos"]["macos_10.13"].add(user)
                 elif "macos" in system_information_trimmed:
                     statistics["os"]["macos"]["unknown"].add(user)
 
@@ -463,8 +458,6 @@ def main() -> None:
                     statistics["os"]["android"]["android_8"].add(user)
                 elif "android7" in system_information_trimmed:
                     statistics["os"]["android"]["android_7"].add(user)
-                elif "android6" in system_information_trimmed:
-                    statistics["os"]["android"]["android_6"].add(user)
                 elif "android" in system_information_trimmed:
                     statistics["os"]["android"]["unknown"].add(user)
 
@@ -484,8 +477,6 @@ def main() -> None:
                     statistics["os"]["ios"]["ios_13"].add(user)
                 elif "ios12" in system_information_trimmed:
                     statistics["os"]["ios"]["ios_12"].add(user)
-                elif "ios11" in system_information_trimmed:
-                    statistics["os"]["ios"]["ios_11"].add(user)
                 elif "ios" in system_information_trimmed:
                     statistics["os"]["ios"]["unknown"].add(user)
 
