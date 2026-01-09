@@ -22,13 +22,19 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Static checks
+        if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+        run: |
+          pip install pre-commit
+          pre-commit run --all-files
 
       - name: Fetch statistics
         run: |
@@ -58,7 +64,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
