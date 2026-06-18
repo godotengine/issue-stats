@@ -33,8 +33,8 @@ jobs:
       - name: Static checks
         if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
         run: |
-          pip install pre-commit
-          pre-commit run --all-files
+          pip install prek
+          prek run --all-files
 
       - name: Fetch statistics
         run: |
