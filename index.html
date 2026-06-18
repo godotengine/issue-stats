@@ -10,47 +10,12 @@
     <meta name="theme-color" content="#3d8fcc">
     <title>Godot GitHub issue statistics</title>
     <link rel="icon" href="favicon.png">
+    <link rel="preload" href="thirdparty/fonts/inter-regular.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="thirdparty/fonts/inter-italic.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="thirdparty/fonts/inter-bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="thirdparty/fonts/inter-bold-italic.woff2" as="font" crossorigin="anonymous">
     <link rel="stylesheet" href="thirdparty/water.min.css">
-    <style>
-        body {
-            line-height: 1.6;
-        }
-
-        h3 {
-            /* Put subheadings closer to the charts to save vertical space. */
-            margin-top: -1rem;
-            margin-bottom: -0.5rem;
-            /* Line up subheadings with the charts. */
-            margin-left: 2rem;
-        }
-
-        h3:not(:first-of-type) {
-            /* Put subsequent subheadings in a block even closer to the chart to save more vertical space. */
-            margin-top: -3rem;
-        }
-
-        details {
-            align-items: unset;
-        }
-
-        summary {
-            /* Make accordion titles look more like headings. */
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-
-        .chart-container {
-            /* Limit size of donut charts on desktop. */
-            position: relative;
-            max-width: 20rem;
-            margin: 0 auto 2rem auto;
-        }
-
-        .chart-caption {
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
     <script defer src="thirdparty/chart.umd.min.js"></script>
     <script defer src="thirdparty/ky.umd.min.js"></script>
     <script>
@@ -358,7 +323,7 @@
                             : Object.values(dataset).map(subObject => Object.values(subObject).reduce(sum, 0)),
                         backgroundColor: Object.keys(dataset).map(label => getChartColor(label)),
                         // Match background color to create a visible, but transparent distinction between chart segments.
-                        borderColor: prefersDark ? "#1a242f" : "#f7f7f7",
+                        borderColor: prefersDark ? "#262626" : "#f7f7f7",
                     }
                 ]
             };
@@ -704,7 +669,7 @@
     <button onclick="setAllDetailsOpen(true)"><strong>+</strong>&nbsp;&nbsp;Expand all</button>
     <button onclick="setAllDetailsOpen(false)"><strong>-</strong>&nbsp;&nbsp;Collapse all</button>
 
-    <footer>
+    <footer style="margin: 2rem 0 4rem 0; opacity: 0.8; text-align: center">
         © 2023-present Hugo Locurcio and contributors<br>
         <a href="https://github.com/godotengine/issue-stats">Website source on GitHub</a>
     </footer>
